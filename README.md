@@ -1,171 +1,204 @@
-🛒 E-Commerce Platform
+# 🛍️ Riva Shopping
 
-Laravel 12 + React + Inertia.js
+<div align="center">
 
-A modern full-stack E-Commerce web application built using Laravel 12, React, and Inertia.js.
-The platform provides a seamless shopping experience with a powerful admin dashboard and secure payment integration.
+### Modern E-Commerce Platform
 
-🚀 Tech Stack
+A scalable shopping platform built with **NestJS**, **React Native (Expo)**, and **TypeScript**, providing a seamless shopping experience for customers and a powerful backend for administrators.
 
-Backend: PHP 8.x, Laravel 12
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?logo=nestjs\&logoColor=white)
+![React Native](https://img.shields.io/badge/React%20Native-61DAFB?logo=react)
+![Expo](https://img.shields.io/badge/Expo-000020?logo=expo)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript\&logoColor=white)
+![Socket.IO](https://img.shields.io/badge/Socket.IO-010101?logo=socket.io)
 
-Frontend: React.js
+</div>
 
-Bridge: Inertia.js
+---
 
-Database: MySQL
+# 📖 Overview
 
-Authentication: Laravel Fortify / Sanctum
+**Riva Shopping** is a modern e-commerce platform designed to deliver a fast, secure, and user-friendly shopping experience.
 
-Styling: Tailwind CSS
+Customers can browse products, manage their cart, place orders, and track purchases, while administrators can efficiently manage products, categories, orders, and customers.
 
-Payments: Stripe (optional)
+---
 
-Real-time (optional): Laravel Reverb / WebSockets
+# ✨ Features
 
-✨ Features
-👤 User Features
+## Customer
 
-User registration & login
+* 🛍 Browse Products
+* 🔍 Product Search
+* ❤️ Wishlist
+* 🛒 Shopping Cart
+* 💳 Secure Checkout
+* 📦 Order Tracking
+* 🔔 Real-time Order Updates
+* ⭐ Product Reviews
+* 👤 User Profile
+* 📍 Address Management
 
-Browse products by category
+## Admin
 
-Add to cart
+* 📦 Product Management
+* 🗂 Category Management
+* 📑 Order Management
+* 👥 Customer Management
+* 📊 Dashboard & Analytics
+* 🎯 Discounts & Promotions
+* 🔔 Push Notifications
 
-Secure checkout
+---
 
-Online payment integration (Stripe)
+# 🛠 Tech Stack
 
-Order history
+## Backend
 
-Responsive design
+* NestJS
+* TypeScript
+* PostgreSQL
+* Prisma ORM
+* Socket.IO
+* JWT Authentication
+* BullMQ
+* Redis
 
-🛠 Admin Features
+## Mobile App
 
-Dashboard overview
+* React Native
+* Expo
+* TypeScript
+* React Navigation
+* Axios
+* React Query
 
-Manage products (CRUD)
+---
 
-Manage categories
+# 📂 Project Structure
 
-Manage users
+```text
+Riva-Shopping/
+│
+├── backend/
+│   ├── src/
+│   ├── prisma/
+│   └── uploads/
+│
+├── mobile/
+│   ├── app/
+│   ├── components/
+│   ├── hooks/
+│   ├── services/
+│   └── assets/
+│
+└── docs/
+```
 
-Manage orders
+---
 
-Real-time order updates (WebSockets)
+# 🚀 Getting Started
 
-📦 Installation Guide
-1️⃣ Clone the Repository
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
-2️⃣ Install Backend Dependencies
-composer install
-3️⃣ Install Frontend Dependencies
+## Clone the repository
+
+```bash
+git clone https://github.com/devmohamedesmail/Riva-Shopping.git
+```
+
+```bash
+cd Riva-Shopping
+```
+
+---
+
+## Backend
+
+Install dependencies
+
+```bash
+cd backend
 npm install
-4️⃣ Environment Setup
+```
 
-Copy .env.example to .env
+Create a `.env` file and configure:
 
-cp .env.example .env
+```env
+DATABASE_URL=
+JWT_SECRET=
+REDIS_HOST=
+REDIS_PORT=
+PORT=3000
+```
 
-Update your database credentials inside .env:
+Run Prisma migrations
 
-DB_DATABASE=your_database
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-5️⃣ Generate Application Key
-php artisan key:generate
-6️⃣ Run Migrations
-php artisan migrate
+```bash
+npx prisma migrate dev
+```
 
-(Optional: Seed database)
+Start the server
 
-php artisan db:seed
-7️⃣ Run the Application
+```bash
+npm run start:dev
+```
 
-Start Laravel server:
+---
 
-php artisan serve
+## Mobile App
 
-Start Vite dev server:
+```bash
+cd mobile
+npm install
+```
 
-npm run dev
-📂 Project Structure
-app/
-resources/
-  ├── js/
-  │   ├── Pages/
-  │   ├── Components/
-routes/
-database/
+Start Expo
 
-app/ → Backend logic
+```bash
+npx expo start
+```
 
-resources/js/ → React frontend
+---
 
-routes/web.php → Application routes
+# 📱 Screenshots
 
-💳 Payment Integration (Stripe)
+> Coming soon...
 
-Add your Stripe keys in .env:
+---
 
-STRIPE_KEY=your_key
-STRIPE_SECRET=your_secret
-🔐 Authentication
+# 🗺️ Roadmap
 
-Authentication is handled using Laravel Fortify / Sanctum with Inertia.js integration.
+* [ ] Coupons & Discounts
+* [ ] Multiple Payment Methods
+* [ ] Push Notifications
+* [ ] Live Order Tracking
+* [ ] Product Reviews
+* [ ] Multi-language Support
+* [ ] Dark Mode
+* [ ] Vendor Dashboard
+* [ ] AI Product Recommendations
 
-📸 Screenshots
+---
 
-Add screenshots of your homepage, dashboard, and checkout here.
+# 🤝 Contributing
 
-🌍 Deployment
+Contributions are welcome!
 
-For production:
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push your branch
+5. Open a Pull Request
 
-npm run build
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+---
 
-Make sure to:
+# 📄 License
 
-Set APP_ENV=production
+This project is licensed under the MIT License.
 
-Set APP_DEBUG=false
+---
 
-📌 Future Improvements
+<div align="center">
 
-Wishlist feature
+Made with ❤️ by **Mohamed Esmail**
 
-Product reviews & ratings
-
-Multi-vendor support
-
-Coupon & discount system
-
-Multi-language support
-
-👨‍💻 Author
-
-Mohamed Esmail
-Full Stack Developer
-
-📄 License
-
-This project is open-source and available under the MIT License.
-
-If you want, I can also:
-
-🔥 Make a more professional README for recruiters
-
-📈 Optimize it for GitHub SEO
-
-🏆 Make it strong enough for your portfolio
-
-🧠 Add system architecture diagram section
-
-💼 Customize it for your LinkedIn profile
-
-
-# Riva-Shopping
+</div>
