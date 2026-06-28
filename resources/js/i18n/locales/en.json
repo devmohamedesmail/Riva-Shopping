@@ -1,0 +1,483 @@
+{
+    "common": {
+        "free_shipping": "Free shipping on orders over $50",
+        "contact_phone": "+1 (123) 456-7890",
+        "contact_email": "support@shopella.com",
+        "sign_in": "Sign In",
+        "register": "Register",
+        "all_categories": "All Categories",
+        "categories": "Browse Categories",
+        "search_placeholder": "Search for products, brands…",
+        "cart": "Cart",
+        "wishlist": "Wishlist",
+        "account": "Account",
+        "loading": "Loading…",
+        "no_results": "No results found.",
+        "view_all": "View All",
+        "add_to_cart": "Add to Cart",
+        "remove": "Remove",
+        "empty": "Empty",
+        "total": "Total",
+        "subtotal": "Subtotal",
+        "discount": "Discount",
+        "shipping": "Shipping",
+        "free": "Free",
+        "quantity": "Quantity",
+        "price": "Price",
+        "save": "Save",
+        "cancel": "Cancel",
+        "continue": "Continue",
+        "back": "Back",
+        "submit": "Submit",
+        "success": "Success!",
+        "error": "Something went wrong.",
+        "view_store": "View Store",
+        "show_more": "Show More",
+        "image":"Image",
+        "name_en":"Name (EN)",
+        "name_ar":"Name (AR)",
+        "slug":"slug",
+        "parent":"Parent",
+        "status":"Status",
+        "actions":"Actions",
+        "search":"Search"
+    },
+    "home": {
+        "featured": {
+            "label": "Handpicked",
+            "title": "Featured Products",
+            "view_all": "View All Products",
+            "load_more": "Load More Products"
+        },
+        "products": {
+            "label": "Discover",
+            "title": "All Products",
+            "subtitle": "Explore our wide range of collections",
+            "load_more": "Show More Products"
+        },
+        "stores": {
+            "label": "Top Partners",
+            "title": "Our Best Stores",
+            "subtitle": "Shop directly from verified sellers and brands",
+            "view_store": "View Store",
+            "show_more": "Show More Stores"
+        },
+        "header":{
+            "dashboard":"Dashboard",
+            "logout":"Logout",
+            "profile":"Profile",
+            "my-account":"My Account"
+        }
+    },
+    "shop": {
+        "title": "Shop",
+        "subtitle": "Explore thousands of products across all categories",
+        "filter": "Filter",
+        "sort": "Sort by",
+        "sort_options": {
+            "newest": "Newest",
+            "price_asc": "Price: Low to High",
+            "price_desc": "Price: High to Low",
+            "popular": "Most Popular"
+        },
+        "results": "{{count}} products found",
+        "clear_filters": "Clear Filters",
+        "price_range": "Price Range",
+        "rating": "Rating",
+        "brand": "Brand",
+        "in_stock": "In Stock Only",
+        "add_to_cart": "Add to Cart",
+        "add_to_wishlist": "Add to Wishlist",
+        "no_products": "No products found. Try adjusting your filters.",
+        "select_variation_price": "(Select options for exact price)",
+        "out_of_stock": "Out of Stock",
+        "in_stock_count": "{{count}} in stock",
+        "select_options": "Please select all options before adding to cart."
+    },
+    "cart": {
+        "title": "Shopping Cart",
+        "subtitle": "Review your items before checkout",
+        "empty_title": "Your cart is empty",
+        "empty_desc": "Looks like you haven't added anything yet. Start shopping!",
+        "empty_cta": "Continue Shopping",
+        "product": "Product",
+        "quantity": "Quantity",
+        "price": "Price",
+        "total": "Total",
+        "remove": "Remove",
+        "order_summary": "Order Summary",
+        "subtotal": "Subtotal",
+        "shipping": "Shipping",
+        "free_shipping": "Free",
+        "discount_code": "Discount Code",
+        "apply": "Apply",
+        "grand_total": "Grand Total",
+        "checkout": "Proceed to Checkout",
+        "continue_shopping": "Continue Shopping",
+        "saved": "Saved for later",
+        "move_to_wishlist": "Move to Wishlist"
+    },
+    "wishlist": {
+        "title": "My Wishlist",
+        "subtitle": "Items you've saved for later",
+        "empty_title": "Your wishlist is empty",
+        "empty_desc": "Save items you love to buy them later.",
+        "empty_cta": "Start Shopping",
+        "add_to_cart": "Add to Cart",
+        "remove": "Remove",
+        "share": "Share Wishlist",
+        "clear_all": "Clear All"
+    },
+    "checkout": {
+        "title": "Checkout",
+        "subtitle": "Complete your purchase securely",
+        "steps": {
+            "shipping": "Shipping",
+            "payment": "Payment",
+            "review": "Review"
+        },
+        "shipping": {
+            "heading": "Shipping Information",
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "email": "Email",
+            "phone": "Phone",
+            "address": "Address",
+            "city": "City",
+            "state": "State / Province",
+            "zip": "ZIP / Postal Code",
+            "country": "Country",
+            "save_address": "Save this address for future orders"
+        },
+        "payment": {
+            "heading": "Payment Method",
+            "card": "Credit / Debit Card",
+            "card_number": "Card Number",
+            "expiry": "Expiry Date",
+            "cvv": "CVV",
+            "name_on_card": "Name on Card",
+            "cod": "Cash on Delivery",
+            "paypal": "PayPal",
+            "secure_note": "Your payment is secured with 256-bit SSL encryption."
+        },
+        "review": {
+            "heading": "Review Your Order",
+            "items": "Items",
+            "shipping_to": "Shipping to",
+            "payment_via": "Payment via"
+        },
+        "place_order": "Place Order",
+        "placing": "Placing Order…",
+        "success_title": "Order Placed! 🎉",
+        "success_desc": "Thank you for your order. You'll receive a confirmation email shortly."
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "We'd love to hear from you. Reach out and we'll get back to you as soon as possible.",
+        "form": {
+            "name": "Full Name",
+            "name_placeholder": "John Doe",
+            "email": "Email Address",
+            "email_placeholder": "you@example.com",
+            "subject": "Subject",
+            "subject_placeholder": "How can we help?",
+            "message": "Message",
+            "message_placeholder": "Tell us more…",
+            "submit": "Send Message",
+            "submitting": "Sending…",
+            "success": "Message sent! We'll get back to you soon.",
+            "error": "Failed to send. Please try again."
+        },
+        "info": {
+            "heading": "Get in Touch",
+            "address": "123 Commerce Street, New York, NY 10001",
+            "phone": "+1 (123) 456-7890",
+            "email": "support@shopella.com",
+            "hours": "Mon – Fri, 9am – 6pm EST"
+        },
+        "faq": {
+            "heading": "Frequently Asked Questions",
+            "q1": "How long does shipping take?",
+            "a1": "Standard shipping takes 3–5 business days. Express shipping is available at checkout.",
+            "q2": "Can I return a product?",
+            "a2": "Yes! We offer a hassle-free 30-day return policy on all products.",
+            "q3": "Do you ship internationally?",
+            "a3": "Yes, we ship to over 50 countries worldwide.",
+            "q4": "How do I track my order?",
+            "a4": "Once your order ships, you'll receive an email with a tracking number."
+        }
+    },
+    "privacy": {
+        "title": "Privacy Policy",
+        "subtitle": "Your privacy is important to us. This policy explains how we collect and use your data.",
+        "last_updated": "Last updated: March 2026",
+        "sections": {
+            "collection": {
+                "title": "Information We Collect",
+                "body": "We collect information you provide directly to us, such as your name, email address, shipping address, and payment information when you make a purchase. We also automatically collect certain information about your device and how you interact with our services."
+            },
+            "use": {
+                "title": "How We Use Your Information",
+                "body": "We use the information we collect to process transactions, send order confirmations and updates, respond to your comments and questions, send marketing communications (with your consent), and improve our services."
+            },
+            "sharing": {
+                "title": "Information Sharing",
+                "body": "We do not sell, trade, or otherwise transfer your personal information to outside parties except to trusted third parties who assist us in operating our website, such as payment processors and shipping providers."
+            },
+            "cookies": {
+                "title": "Cookies",
+                "body": "We use cookies to enhance your experience, analyze site traffic, and understand where our visitors are coming from. You can choose to disable cookies through your browser settings."
+            },
+            "security": {
+                "title": "Security",
+                "body": "We implement a variety of security measures to protect your personal information. Your payment information is encrypted using SSL technology."
+            },
+            "rights": {
+                "title": "Your Rights",
+                "body": "You have the right to access, update, or delete the personal information we hold about you. Contact us at privacy@shopella.com to exercise these rights."
+            },
+            "contact": {
+                "title": "Contact Us",
+                "body": "If you have any questions about this Privacy Policy, please contact us at privacy@shopella.com or write to us at 123 Commerce Street, New York, NY 10001."
+            }
+        }
+    },
+    "create_store": {
+        "title": "Create Your Store",
+        "subtitle": "Set up your seller profile in minutes and start selling to thousands of customers.",
+        "steps": {
+            "info": "Store Info",
+            "location": "Location",
+            "categories": "Categories",
+            "media": "Media"
+        },
+        "info": {
+            "heading": "Store Information",
+            "name": "Store Name",
+            "name_placeholder": "e.g. My Awesome Store",
+            "description": "Description",
+            "description_placeholder": "Tell customers what your store is about…",
+            "phone": "Phone",
+            "phone_placeholder": "+1 555 000 0000",
+            "email": "Email",
+            "email_placeholder": "store@example.com",
+            "currency": "Currency",
+            "timezone": "Timezone"
+        },
+        "location": {
+            "heading": "Store Location",
+            "address": "Address",
+            "address_placeholder": "123 Main Street",
+            "city": "City",
+            "city_placeholder": "New York",
+            "state": "State / Province",
+            "state_placeholder": "NY",
+            "zip": "ZIP / Postal Code",
+            "zip_placeholder": "10001",
+            "country": "Country",
+            "country_placeholder": "— Select Country —"
+        },
+        "categories": {
+            "heading": "Store Categories",
+            "description": "Choose the categories that best describe your store's products.",
+            "no_categories": "No categories available yet."
+        },
+        "media": {
+            "heading": "Store Media",
+            "logo": "Store Logo",
+            "cover": "Cover Image",
+            "review_title": "Review Summary",
+            "store_name": "Store Name",
+            "email": "Email",
+            "phone": "Phone",
+            "city": "City",
+            "country": "Country",
+            "currency": "Currency",
+            "categories": "Categories",
+            "none": "None",
+            "selected": "selected"
+        },
+        "nav": {
+            "next": "Next",
+            "previous": "Previous",
+            "submit": "Create Store",
+            "submitting": "Creating…"
+        },
+        "validation": {
+            "fix_errors": "Please fix the following errors:"
+        },
+        "toast": {
+            "success": "Store created successfully! 🎉",
+            "error": "Something went wrong. Please try again."
+        }
+    },
+    "image_picker": {
+        "click_to_upload": "Click to upload",
+        "file_hint": "PNG, JPG, WEBP — max 2 MB"
+    },
+    "categories": {
+        "explore": "Explore",
+        "shop_by_category": "Shop by Category",
+        "view_all": "View All",
+        "management":"Management Categories",
+        "add":"ADD",
+        "total":"Total"
+    },
+    "feature": {
+        "free_shipping": "Free Shipping",
+        "free_shipping_desc": "On orders over $50",
+        "easy_returns": "Easy Returns",
+        "easy_returns_desc": "30-day return policy",
+        "secure_payment": "Secure Payment",
+        "secure_payment_desc": "100% protected",
+        "24_7_support": "24/7 Support",
+        "24_7_support_desc": "Dedicated team"
+    },
+    "vendor": {
+        "sidebar": {
+            "overview": "Overview",
+            "dashboard": "Dashboard",
+            "products": "Products",
+            "orders": "Orders",
+            "customers": "Customers",
+            "reviews": "Reviews",
+            "settings": "Settings",
+            "categories": "Categories",
+            "back_to_site": "Back to Site",
+            "language": "Language",
+            "vendor_panel": "Vendor Panel"
+        },
+        "categories": {
+            "title": "Categories",
+            "subtitle": "Manage your store categories",
+            "go_to_settings": "Go to Settings",
+            "no_categories": "No categories available yet.",
+            "active": "Active"
+        },
+        "settings": {
+            "title": "Settings",
+            "subtitle": "Manage your store settings",
+            "store_info": "Store Info",
+            "location": "Location",
+            "categories": "Categories",
+            "media": "Media",
+            "save": "Save",
+            "address": "Address",
+            "city": "City",
+            "state": "State / Province",
+            "zip": "ZIP / Postal Code",
+            "country": "Country",
+            "currency": "Currency",
+            "none": "None",
+            "selected": "selected",
+            "categories_desc": "Choose the categories that best describe your store's products.",
+            "saving": "Saving…"
+        },
+        "overview": {
+            "total_products": "Total Products",
+            "total_categories": "Total Categories",
+            "total_orders": "Total Orders",
+            "total_revenue": "Total Revenue",
+            "recent_orders": "Recent Orders",
+            "view_orders": "View Orders",
+            "welcome": "Welcome",
+            "subtitle": "Here's what's happening with your store today.",
+            "quick_actions": "Quick Actions",
+            "add_product": "Add Product",
+            "manage_products": "Manage Products",
+            "edit_settings": "Edit Settings"
+        },
+        "orders": {
+            "order_id": "Order ID",
+            "customer": "Customer",
+            "date": "Date",
+            "total": "Total",
+            "status": "Status",
+            "actions": "Actions",
+            "view": "View",
+            "processing": "Processing",
+            "shipped": "Shipped",
+            "delivered": "Delivered",
+            "cancelled": "Cancelled",
+            "title": "Orders",
+            "subtitle": "Manage your orders",
+            "pending": "Pending",
+            "filter_all": "Filter All",
+            "no_orders": "No Orders Found"
+        },
+        "products": {
+            "save_success": "Product saved successfully!",
+            "delete_success": "Product deleted successfully!",
+            "delete_error": "Something went wrong. Please try again.",
+            "delete_confirm": "Are you sure you want to delete this product?",
+            "delete_cancel": "Cancel",
+            "add_product": "Add Product",
+            "edit_product": "Edit Product",
+            "delete_product": "Delete Product",
+            "name": "Name",
+            "description": "Description",
+            "price": "Price",
+            "sale_price": "Sale Price",
+            "stock": "Stock",
+            "sku": "SKU",
+            "status": "Status",
+            "category": "Category",
+            "select_category": "Select Category",
+            "active": "Active",
+            "inactive": "Inactive",
+            "draft": "Draft",
+            "actions": "Actions",
+            "edit": "Edit",
+            "delete": "Delete",
+            "add_modal_title": "Add Product",
+            "edit_modal_title": "Edit Product",
+            "title": "Products",
+            "add": "Add",
+            "search": "Search",
+            "no_products": "No products found",
+            "saving": "Saving…",
+            "save": "Save",
+            "cancel": "Cancel",
+            "general": "General",
+            "images": "Images",
+            "pricing": "Pricing",
+            "variants": "Variants",
+            "shipping": "Shipping",
+            "visibility": "Visibility"
+        }
+    },
+    "footer": {
+    "shop": "Shop",
+    "customerCare": "Customer Care",
+    "company": "Company",
+    "newArrivals": "New Arrivals",
+    "bestSellers": "Best Sellers",
+    "sale": "Sale",
+    "brands": "Brands",
+    "allProducts": "All Products",
+    "myAccount": "My Account",
+    "trackOrder": "Track Your Order",
+    "returns": "Returns & Exchanges",
+    "faqs": "FAQs",
+    "supportCenter": "Support Center",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "press": "Press",
+    "blog": "Blog",
+    "affiliateProgram": "Affiliate Program",
+    "description": "Your one-stop destination for premium products at unbeatable prices. Shop smart, live better.",
+    "address": "123 Commerce Street, NY 10001, USA",
+    "rights": "All rights reserved.",
+    "weAccept": "We accept:",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "beSeller": "Be Seller",
+    "madeWith": "Made with"
+  },
+  "products":{
+    "add-to-cart":"Add To Cart",
+    "added" : "Already in cart",
+    "featured":"Featured"
+  }
+}
