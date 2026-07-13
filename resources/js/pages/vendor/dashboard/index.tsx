@@ -80,7 +80,7 @@ export default function VendorDashboard({ store, productCount = 0, categoryCount
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Recent orders */}
+        
         <div className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-xs overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-800">
             <h3 className="font-semibold text-gray-900 dark:text-white text-sm">{t('vendor.overview.recent_orders')}</h3>
@@ -114,7 +114,7 @@ export default function VendorDashboard({ store, productCount = 0, categoryCount
           </div>
         </div>
 
-        {/* Quick actions */}
+        
         <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-xs p-5">
           <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-4">{t('vendor.overview.quick_actions')}</h3>
           <div className="space-y-3">

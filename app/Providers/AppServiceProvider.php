@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Category;
+use App\Models\Setting;
 use Carbon\CarbonImmutable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
@@ -27,15 +29,8 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->configureDefaults();
         Inertia::share('categories', fn() => Category::whereNull('parent_id')->with('children')->get());
-
-        // auth user
-        Inertia::share([
-        'auth' => function () {
-            return auth()->check()
-                ? ['user' => auth()->user()]
-                : ['user' => null];
-        }
-        ]);
+        Inertia::share('auth' , fn() => Auth::user() );
+        Inertia::share('settings' , fn()=> Setting::first());
     }
 
     /**

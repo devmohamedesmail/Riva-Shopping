@@ -2,15 +2,10 @@
 # Stage 1: Frontend Build
 # =========================================
 FROM node:22-alpine AS frontend
-
 WORKDIR /app
-
 COPY package*.json ./
-
 RUN npm install
-
 COPY . .
-
 RUN npm run build
 
 
@@ -18,9 +13,7 @@ RUN npm run build
 # Stage 2: Laravel + FrankenPHP
 # =========================================
 FROM dunglas/frankenphp
-
 WORKDIR /app
-
 # Install system packages
 RUN apt-get update && apt-get install -y \
     git \

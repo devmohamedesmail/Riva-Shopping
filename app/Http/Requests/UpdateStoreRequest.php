@@ -12,6 +12,7 @@ class UpdateStoreRequest extends FormRequest
      */
     public function authorize(): bool
     {
+        
         return true;
     }
 
@@ -26,7 +27,7 @@ class UpdateStoreRequest extends FormRequest
        $user = Auth::user();
         $storeId = $user?->store?->id;
         return [
-           'name'         => 'required|string|max:255|unique:stores,name,' . $storeId,
+                'name'         => 'required',
                 'description'  => 'nullable|string',
                 'phone'        => 'nullable|string|max:30',
                 'email'        => 'nullable|email|max:255',

@@ -1,5 +1,5 @@
 
-export interface Category { id: number; name_en: string; name_ar: string; }
+export interface Category { id: number; name_en: string; name_ar: string; parent_id: number | null; }
 export interface ProductImage { id: number; image: string; order: number; }
 export interface Variant { id?: number; sku?: string; price: number; sale_price?: number; stock: number; is_active: boolean; attributeValues?: { id: number; attribute_id: number; value: string; }[]; }
 export interface AttributeValue { id: number; attribute_id: number; value: string; price: number; }

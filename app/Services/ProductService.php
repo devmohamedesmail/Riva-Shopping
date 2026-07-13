@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\AttributeValue;
 use App\Models\Product;
 use App\Models\Store;
+use App\Services\CloudinaryService;
 use App\Traits\UploadsToCloudinary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -12,6 +13,82 @@ use Illuminate\Support\Str;
 class ProductService
 {
     use UploadsToCloudinary;
+
+    public function __construct(protected CloudinaryService $cloudinaryService){}
+
+
+    public function getProductDetails(string $slug, int $id)
+    {
+        $product = Product::with([
+            'category',
+            'images',
+            'attributes',
+            'attributeValues.attribute',
+            'variants.attributeValues.attribute',
+        ])->where('id', $id)->firstOrFail();
+
+
+        return $product;
+    }
+
+
+
+
+    public function deleteAllStoreProducts($id)
+    {
+        Product::where('store_id', $id)->delete();
+        return true;
+    }
+
+
+
+    public function createProduct(array $data, $request)
+    {
+        $store = $this->getStore();
+        if (! $store) return null;
+        
+
+        $data['store_id'] = $store->id;
+
+        $data['slug'] = Str::slug($data['title'])  . '-' . uniqid();
+        $product = Product::create($data);
+        $this->uploadImages($product, $request);
+        $this->handleAttributes(
+            $product,
+            $data['product_attributes'] ?? []
+        );
+        $this->handleVariants(
+            $product,
+            $data['variants'] ?? []
+        );
+
+
+        return $product;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // ---------------------------------------------------------------------------------------------------------------
 
     public function getStore()
     {
@@ -59,63 +136,16 @@ class ProductService
 
 
 
-    public function createProduct(array $data, $request)
-    {
-        $store = $this->getStore();
 
-
-        if (! $store) {
-            return null;
-        }
-
-
-        $data['store_id'] = $store->id;
-
-        $data['slug'] =
-            Str::slug($data['title'])
-            . '-' . uniqid();
-
-
-        $product = Product::create($data);
-
-
-
-        $this->uploadImages($product, $request);
-
-
-
-        $this->handleAttributes(
-            $product,
-            $data['product_attributes'] ?? []
-        );
-
-
-        $this->handleVariants(
-            $product,
-            $data['variants'] ?? []
-        );
-
-
-        return $product;
-    }
 
 
     private function uploadImages(Product $product, $request)
     {
-
         if (!$request->hasFile('images')) {
             return;
         }
-
-
         foreach ($request->file('images') as $index => $file) {
-
-            $path = $this->uploadToCloudinary(
-                $file,
-                'products'
-            );
-
-
+            $path = $this->cloudinaryService->uploadToCloudinary( $file, 'products');
             $product->images()->create([
                 'image' => $path,
                 'order' => $index
@@ -164,7 +194,7 @@ class ProductService
 
 
 
-    private function handleVariants(Product $product, array $variants,array $attributeValuesMap = [])
+    private function handleVariants(Product $product, array $variants, array $attributeValuesMap = [])
     {
         if (empty($variants)) {
             return;
@@ -195,7 +225,7 @@ class ProductService
             $attributeValueIds = [];
 
 
-            // لو جاي options
+        
             if (!empty($vData['options'])) {
 
                 foreach ($vData['options'] as $attrId => $value) {

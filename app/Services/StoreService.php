@@ -59,7 +59,7 @@ class StoreService
 
         if ($user instanceof \App\Models\User) {
             $user->update([
-                'role_id' => 3,
+                'role_id' => 2,
             ]);
         }
 

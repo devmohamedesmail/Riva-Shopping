@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Head } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 import { Shield, ChevronRight, Lock, Eye, Share2, Cookie, Key, MessageSquare } from 'lucide-react';
-import TopBar from '@/components/home/top-header';
-import Navbar from '@/components/home/navbar';
+import TopBar from '@/components/shared/top-header';
+import Navbar from '@/components/shared/navbar';
 import Footer from '@/components/home/footer';
 
 const SECTIONS = [

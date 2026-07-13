@@ -8,6 +8,7 @@ import {
     Sun,
 } from 'lucide-react';
 import { useAppearance } from '@/hooks/use-appearance';
+import AuthMenu from '@/components/shared/auth-menu';
 
 interface Props {
     children: React.ReactNode;
@@ -23,7 +24,7 @@ export default function VendorLayout({ children, title }: Props) {
     const isRtl = i18n.language === 'ar';
     const [collapsed, setCollapsed] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const {  appearance, updateAppearance }=useAppearance()
+    const { appearance, updateAppearance } = useAppearance()
 
     const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
@@ -32,13 +33,13 @@ export default function VendorLayout({ children, title }: Props) {
         i18n.changeLanguage(next);
         document.documentElement.dir = next === 'ar' ? 'rtl' : 'ltr';
     };
-const NAV_ITEMS = [
-    { key: t('vendor.sidebar.overview'), href: '/vendor/dashboard', icon: LayoutDashboard },
-    { key: t('vendor.sidebar.products'), href: '/vendor/products', icon: Package },
-    { key: t('vendor.sidebar.categories'), href: '/vendor/categories', icon: Tag },
-    { key: t('vendor.sidebar.orders'), href: '/vendor/orders', icon: ShoppingBag },
-    { key: t('vendor.sidebar.settings'), href: '/vendor/settings', icon: Settings },
-];
+    const NAV_ITEMS = [
+        { key: t('vendor.sidebar.overview'), href: '/vendor/dashboard', icon: LayoutDashboard },
+        { key: t('vendor.sidebar.products'), href: '/vendor/products/page', icon: Package },
+        { key: t('vendor.sidebar.categories'), href: '/vendor/categories', icon: Tag },
+        { key: t('vendor.sidebar.orders'), href: '/vendor/orders', icon: ShoppingBag },
+        { key: t('vendor.sidebar.settings'), href: '/update/store/page', icon: Settings },
+    ];
 
     const SidebarContent = () => (
         <div className="flex flex-col h-full">
@@ -177,14 +178,8 @@ const NAV_ITEMS = [
                     <div className="flex-1">
                         <h1 className="text-sm font-semibold text-gray-800 dark:text-white">{title}</h1>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-linear-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white text-xs font-bold">
-                            {auth?.user?.name?.charAt(0)?.toUpperCase() ?? 'V'}
-                        </div>
-                        <span className="hidden sm:block text-sm font-medium text-gray-700 dark:text-gray-300 max-w-32 truncate">
-                            {auth?.user?.name ?? 'Vendor'}
-                        </span>
-                    </div>
+                    
+                    <AuthMenu />
                 </header>
 
                 <main className="flex-1 p-5 md:p-6">

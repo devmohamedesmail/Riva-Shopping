@@ -6,6 +6,9 @@ import '../css/app.css';
 import './i18n/index'
 import { initializeTheme } from '@/hooks/use-appearance';
 import { Toaster } from 'react-hot-toast';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import store, { persistor } from './redux/store';
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({
@@ -20,8 +23,15 @@ createInertiaApp({
 
         root.render(
             <StrictMode>
-                <App {...props} />
-                <Toaster />
+                {/* <App {...props} />
+                <Toaster /> */}
+                 <Provider store={store}>
+                    <PersistGate loading={null} persistor={persistor}>
+                         <App {...props} />
+                    </PersistGate>
+                   
+                    <Toaster position="top-right" />
+                </Provider>
             </StrictMode>,
         );
     },
