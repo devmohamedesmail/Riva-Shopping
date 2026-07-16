@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
-import { Phone, Mail, ChevronDown, Check, LayoutDashboard, User, LogOut } from 'lucide-react';
+
+import { Phone, Mail } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import {
-    DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator
-} from '@/components/ui/dropdown-menu';
-import { Link, router, usePage } from '@inertiajs/react';
-import AuthMenu from './auth-menu';
+import {  usePage } from '@inertiajs/react';
+
 import LanguageSelector from './language-selector';
 
 
@@ -37,7 +34,7 @@ export default function TopBar() {
                 {/* Right: currency, language, links */}
                 <div className="flex items-center gap-4">
                     <LanguageSelector />
-                    <AuthMenu />
+                    
                 </div>
             </div>
         </div>

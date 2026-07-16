@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link, router } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 import {
     CreditCard, Truck, ClipboardCheck, CheckCircle,
@@ -15,11 +15,13 @@ import MainLayout from '@/layouts/main-layout';
 import CheckoutStepBar from './components/checkout-step-bar';
 import CheckoutForm from './components/checkout-form';
 import OrderSummary from './components/order-summary';
+import { useForm } from 'react-hook-form';
+import z from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import useAuth from '@/hooks/use-auth';
+import { useSelector } from 'react-redux';
 
-const ORDER_ITEMS = [
-    { name: 'Premium Wireless Headphones', price: 89.99, qty: 1 },
-    { name: 'Classic Leather Wallet', price: 34.99, qty: 2 },
-];
+
 
 const STEPS = ['shipping', 'payment', 'review'] as const;
 type Step = typeof STEPS[number];
@@ -30,22 +32,70 @@ const STEP_ICONS: Record<Step, React.ElementType> = {
     review: ClipboardCheck,
 };
 
+
 export default function CheckoutPage() {
     const { t } = useTranslation();
     const [step, setStep] = useState<Step>('shipping');
     const [placed, setPlaced] = useState(false);
     const [payMethod, setPayMethod] = useState<'card' | 'cod' | 'paypal'>('card');
-
-    const subtotal = ORDER_ITEMS.reduce((s, i) => s + i.price * i.qty, 0);
-    const shipping = 0;
-    const total = subtotal + shipping;
-
     const stepIndex = STEPS.indexOf(step);
+    const { user } = useAuth()
+    const cart = useSelector((state:any)=>state.cart.products || [])
+
+
+    const CheckoutSchema = z.object({
+        user_id: z.string(),
+        name: z.string(),
+        phone: z.string(),
+        address: z.string(),
+        notes: z.string(),
+        payment_method:z.string()
+        // items: z.array({
+        //     quantity:z.number()
+        // }),
+    })
+
+    type CheckoutFrom = z.infer<typeof CheckoutSchema>;
+
+    const { register,
+        handleSubmit,
+        setError,
+        formState: { errors },
+    } = useForm({
+        // resolver: zodResolver(CheckoutSchema),
+        defaultValues: {
+            user_id: `${user.id}`,
+            name: `${user.name}`,
+            phone: "",
+            address: "",
+            notes: "",
+            payment_method:"cash",
+            items: cart,
+        }
+    })
+
+    const onSubmit = async (data: CheckoutFrom) => {
+
+        router.post('/create/order', data, {
+            preserveScroll: true,
+            onSuccess: () => {
+                alert("sucess")
+            },
+            onError: (erros) => {
+                // Object.entries(errors).forEach(([key,value])=>{
+                //     setError(key as keyof CheckoutFrom , {
+                //         type:"server",
+                //         message:value
+                //     })
+                // })
+            }
+        })
+    }
 
     if (placed) {
         return (
             <>
-                <Head title={t('checkout.success_title')} />
+                {/* <Head title={t('checkout.success_title')} />
                 <TopBar />
                 <Navbar />
                 <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
@@ -62,7 +112,7 @@ export default function CheckoutPage() {
                         </Link>
                     </div>
                 </div>
-                <Footer />
+                <Footer /> */}
             </>
         );
     }
@@ -81,17 +131,25 @@ export default function CheckoutPage() {
                 </div>
             </div>
 
+
             {/* Step bar */}
-           <CheckoutStepBar STEPS={STEPS} STEP_ICONS={STEP_ICONS} stepIndex={stepIndex} step={step} />
+            <CheckoutStepBar STEPS={STEPS} STEP_ICONS={STEP_ICONS} stepIndex={stepIndex} step={step} />
 
             <div className="bg-gray-50 min-h-screen py-10 px-4">
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-6">
 
                     {/* Form area */}
-                  <CheckoutForm step={step} setStep={setStep} setPayMethod={setPayMethod} payMethod={payMethod} setPlaced={setPlaced} />
+                    <CheckoutForm
+                        register={register}
+                        onSubmit={onSubmit}
+                        handleSubmit={handleSubmit}
+                        step={step} setStep={setStep}
+                        setPayMethod={setPayMethod}
+                        payMethod={payMethod}
+                        setPlaced={setPlaced} />
 
                     {/* Order summary sidebar */}
-                   <OrderSummary />
+                    <OrderSummary />
                 </div>
             </div>
         </MainLayout>

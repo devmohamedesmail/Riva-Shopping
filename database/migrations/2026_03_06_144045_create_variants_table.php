@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('variants', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')
-                ->constrained()
-                ->cascadeOnDelete();
-
+            $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->longText('image')->nullable();
+            $table->string('public_id')->nullable();
             $table->string('sku')->nullable()->unique(); 
             $table->decimal('price', 10, 2);
             $table->decimal('sale_price', 10, 2)->nullable();

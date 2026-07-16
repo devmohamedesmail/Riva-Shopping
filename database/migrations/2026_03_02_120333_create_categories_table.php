@@ -20,6 +20,7 @@ return new class extends Migration
             $table->longText('description_ar')->nullable();
             $table->longText('description_en')->nullable();
             $table->string('image')->nullable();
+            $table->string('public_id')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

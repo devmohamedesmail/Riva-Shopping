@@ -11,6 +11,7 @@ import { register } from '@/routes';
 import { store } from '@/routes/login';
 import { request } from '@/routes/password';
 import { useTranslation } from 'react-i18next';
+import GoogleLogin from './components/google-login';
 
 type Props = {
     status?: string;
@@ -98,6 +99,7 @@ export default function Login({
                                 {processing && <Spinner />}
                                 {t('auth.login')}
                             </Button>
+                            <GoogleLogin />
                         </div>
 
                         {canRegister && (

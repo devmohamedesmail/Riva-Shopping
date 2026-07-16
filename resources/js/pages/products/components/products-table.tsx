@@ -59,7 +59,7 @@ export default function ProductsTable({ filtered, products }: any) {
                             <tr key={product.id} className="hover:bg-gray-50/60 dark:hover:bg-gray-800/40 transition-colors group">
                                 <td className="px-6 py-4 flex items-center gap-3">
                                     {product.images && product.images.length > 0 ? (
-                                        <img src={product.images[0].image.startsWith('http') ? product.images[0].image : `/storage/${product.images[0].image}`} className="w-10 h-10 rounded-md object-cover border border-gray-200 shrink-0" alt="Thumb" />
+                                        <img src={product.images[0].image ? product.images[0].image : `/storage/${product.images[0].image}`} className="w-10 h-10 rounded-md object-cover border border-gray-200 shrink-0" alt="Thumb" />
                                     ) : (
                                         <div className="w-10 h-10 rounded-md border border-gray-200 bg-gray-50 shrink-0 flex items-center justify-center text-gray-400">
                                             <ImageIcon size={16} />

@@ -22,12 +22,9 @@ return new class extends Migration
             $table->string('sku')->nullable()->unique();
             $table->decimal('price', 10, 2);
             $table->decimal('sale_price', 10, 2)->nullable();
-            $table->enum('product_type', ['simple', 'variant'])
-                ->default('simple');
-
-            $table->enum('product_kind', ['physical', 'digital'])
-                ->default('physical');
-
+            $table->enum('product_type', ['simple', 'variant'])->default('simple');
+            $table->enum('product_kind', ['physical', 'digital'])->default('physical');
+            $table->string('brand')->nullable();
             $table->integer('stock')->default(0);
             $table->boolean('is_active')->default(true);
             $table->boolean('is_popular')->default(false);

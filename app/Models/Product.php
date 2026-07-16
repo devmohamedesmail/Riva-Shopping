@@ -33,40 +33,30 @@ class Product extends Model
         'is_featured'   => 'boolean',
     ];
 
-    /**
-     * - relation with store [one to many]
-     */
+ 
     public function store()
     {
         return $this->belongsTo(Store::class);
     }
 
-    /**
-     * - relation with category [one to many]
-     */
+
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
-/**
- * - relation with images [one to many]
- */
+
     public function images()
     {
         return $this->hasMany(ProductImage::class)->orderBy('order');
     }
 
-    /**
-     * - relation with attribute [many to many]
-     */
+   
     public function attributes()
     {
         return $this->belongsToMany(Attribute::class, 'product_attributes');
     }
 
-    /**
-     * - relation with variants [one to many]
-     */
+
     public function variants()
     {
         return $this->hasMany(Variant::class);

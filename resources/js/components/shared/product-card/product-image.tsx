@@ -12,7 +12,7 @@ export default function ProductImage({ product }: any) {
             {/* Product Image */}
             {product.images && product.images.length > 0 ? (
                 <img
-                    src={product.images[0].image.startsWith('http') ? product.images[0].image : `/storage/${product.images[0].image}`}
+                    src={product.images[0].image ? product.images[0].image : `/storage/${product.images[0].image}`}
                     alt={product.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

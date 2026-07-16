@@ -11,8 +11,21 @@ import { Input } from '@/components/ui/input';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
-export default function VariantTab({ activeTab, productType, attributes, currentAttrId, setCurrentAttrId, currentAttrValue, optionFields
-    , setCurrentAttrValue, handleAddOptionValue, generateVariants, variantFields, removeOptionValue, removeVariant, register
+export default function VariantTab({ 
+    activeTab, 
+    productType, 
+    attributes, 
+    currentAttrId, 
+    setCurrentAttrId, 
+    currentAttrValue, 
+    optionFields, 
+    setCurrentAttrValue, 
+    handleAddOptionValue, 
+    generateVariants, 
+    variantFields, 
+    removeOptionValue, 
+    removeVariant, 
+    register
 }: any) {
 
     const { t, i18n } = useTranslation();

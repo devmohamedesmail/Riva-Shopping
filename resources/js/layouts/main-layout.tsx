@@ -21,6 +21,7 @@ export default function MainLayout({ children }: any) {
         <main>
           {children}
         </main>
+
         <Footer />
         <BottomNavigation />
       </div>

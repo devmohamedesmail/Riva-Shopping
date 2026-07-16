@@ -11,25 +11,16 @@ import Newsletter from '@/components/shared/news-letter';
 import StoresSection from './components/stores-section';
 import ProductsSection from './components/products-section';
 import Footer from '@/components/shared/footer';
+import MainLayout from '@/layouts/main-layout';
 
 export default function Home({ stores, products, featuredProducts }: { stores: any, products: any, featuredProducts: any }) {
     const { settings } = usePage().props
 
 
     return (
-        <>
-            <Head title="Shopella — Shop Smart, Live Better">
-                <meta name="description" content="Discover the best deals on fashion, electronics, home & living, and more at Shopella. Premium products at unbeatable prices." />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-            </Head>
-
-            <div className="font-[Inter,sans-serif] bg-white min-h-screen">
-                <TopBar />
-                <Navbar />
-                <main>
-                    <HeroBanner />
+        <MainLayout>
+            
+               <HeroBanner />
                     <CategorySection />
                     {/* <FeaturedProducts featuredProducts={featuredProducts} /> */}
                     <ProductsSection products={products} />
@@ -37,11 +28,6 @@ export default function Home({ stores, products, featuredProducts }: { stores: a
                     {/* <SaleSection /> */}
                     <Newsletter />
                     {/* <StoresSection stores={stores} /> */}
-
-                </main>
-                <Footer />
-
-            </div>
-        </>
+        </MainLayout>
     );
 }

@@ -2,37 +2,38 @@ import React, { useState } from 'react'
 import { Menu, ChevronDown } from 'lucide-react';
 import { Link, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
+import useImport from '@/hooks/use-import';
 
 export default function DesktopNavbar() {
     const [showCatDropdown, setShowCatDropdown] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-    const { t, i18n } = useTranslation();
+    const {t,i18n}=useImport()
     const { categories }: any = usePage().props;
 
     const navLinks = [
         {
-            label: 'Home', href: '/', hasDropdown: false,
+            label: t('common.home'), href: '/', hasDropdown: false,
         },
         {
-            label: 'Shop', href: '#', hasDropdown: true,
+            label: t('common.shop'), href: '#', hasDropdown: true,
             children: ['New Arrivals', 'Trending Now', 'Best Sellers', 'Clearance Sale'],
         },
         {
-            label: 'Categories', href: '#', hasDropdown: true,
+            label: t('common.categories'), href: '#', hasDropdown: true,
             children: categories.map((category: any) => category.name_en),
         },
         {
-            label: 'Brands', href: '#', hasDropdown: true,
+            label: t('common.brand'), href: '#', hasDropdown: true,
             children: ['Nike', 'Apple', 'Samsung', 'IKEA', 'Zara'],
         },
         {
-            label: 'Sale', href: '#', hasDropdown: false, badge: 'HOT',
+            label: t('common.sale'), href: '#', hasDropdown: false, badge: 'HOT',
         },
         {
-            label: 'Blog', href: '#', hasDropdown: false,
+            label: t('common.blog'), href: '#', hasDropdown: false,
         },
         {
-            label: 'Contact', href: '#', hasDropdown: false,
+            label: t('common.contact'), href: '#', hasDropdown: false,
         },
     ];
     return (

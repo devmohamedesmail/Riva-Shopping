@@ -31,7 +31,7 @@ class PublicController extends Controller
 
     public function cart_page()
     {
-        return Inertia::render('users/cart/index');
+        return Inertia::render('cart/index');
     }
     public function wishlist_page()
     {

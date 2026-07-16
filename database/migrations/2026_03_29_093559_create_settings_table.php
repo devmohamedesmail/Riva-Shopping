@@ -18,7 +18,9 @@ return new class extends Migration
             $table->longText('site_description_ar')->nullable();
             $table->longText('site_description_en')->nullable();
             $table->longText('logo')->nullable();
+            $table->string('public_logo_id')->nullable();
             $table->longText('favicon')->nullable();
+            $table->string('public_favicon_id')->nullable();
             $table->string('currency_ar')->default('$');
             $table->string('currency_en')->default('$');
             $table->string('timezone')->default('Africa/Cairo');

@@ -10,6 +10,8 @@ import { useTranslation } from 'react-i18next';
 import MobileDrawer from '../ui/mobile-drawer';
 import DesktopNavbar from './destop-navbar';
 import { useSelector } from 'react-redux';
+import { usePage } from '@inertiajs/react';
+import AuthMenu from './auth-menu';
 
 
 
@@ -21,6 +23,7 @@ export default function Navbar() {
     const [wishlistCount] = useState(5);
     const [scrolled, setScrolled] = useState(false);
     const cart = useSelector((state: any) => state.cart.products || [])
+    const { auth } = usePage().props as any
 
     useEffect(() => {
         const handler = () => setScrolled(window.scrollY > 60);
@@ -72,11 +75,16 @@ export default function Navbar() {
                             />
 
 
-                            <NavbarIcon
+
+
+                            {auth ? <AuthMenu /> : 
+                                <NavbarIcon
                                 icon={<User size={22} className="group-hover:scale-110 transition-transform" />}
                                 href="/login"
                                 label={t('common.account')}
                             />
+                            }
+
 
                         </div>
                     </div>

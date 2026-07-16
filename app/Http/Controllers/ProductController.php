@@ -34,7 +34,7 @@ class ProductController extends Controller
     {
 
         $product = $this->productService->getProductDetails($slug, $id);
-        return Inertia::render('users/product-details/index', [
+        return Inertia::render('product-details/index', [
             'product' => $product,
         ]);
     }

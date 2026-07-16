@@ -5,12 +5,11 @@ import {
     DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
 import { Link, router, usePage } from '@inertiajs/react';
+import NavbarIcon from '../ui/navbar-icon';
 
 export default function AuthMenu() {
     const { t, i18n } = useTranslation();
-    const { settings }: any = usePage().props
     const { auth } = usePage().props as any
-    console.log(auth.user)
     const handleLogout = () => {
         router.post('/logout');
     };
@@ -22,12 +21,12 @@ export default function AuthMenu() {
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <button className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2 rounded-lg hover:bg-accent/50 transition-all duration-200 outline-none">
-                            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-linear-to-br from-primary to-primary/70 flex items-center justify-center text-white font-semibold text-sm">
+                            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-linear-to-br from-primary to-primary/70 flex items-center justify-center text-black font-semibold text-sm">
                                 {auth.user.name?.charAt(0).toUpperCase()}
                             </div>
                             <div className="hidden sm:block text-left">
-                                <p className="text-sm font-medium text-white">{auth.user.name}</p>
-                                <p className="text-xs text-white">{t('home.header.my-account')}</p>
+                                <p className="text-sm font-medium text-black">{auth.user.name}</p>
+                                <p className="text-xs text-black">{t('home.header.my-account')}</p>
                             </div>
                         </button>
                     </DropdownMenuTrigger>
@@ -70,9 +69,13 @@ export default function AuthMenu() {
                 </DropdownMenu>
             ) : (
                 <>
-                    <span className="text-gray-400">|</span>
-                    <Link href="/login" className="hover:text-[#c96] transition-colors">{t('common.sign_in')}</Link>
-                    <Link href="/register" className="hover:text-[#c96] transition-colors">{t('common.register')}</Link></>
+                    <NavbarIcon
+                        icon={<User size={22} className="group-hover:scale-110 transition-transform" />}
+                        href="/login"
+                        label={t('common.account')}
+                    />
+
+                </>
             )}
         </div>
     )

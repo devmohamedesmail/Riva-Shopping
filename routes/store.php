@@ -9,4 +9,5 @@ Route::controller(StoreController::class)->group(function () {
     Route::get('/update/store/page',  'update_store_page')->name('settings');
     Route::patch('/update/store/submit',  'update_store')->name('settings.update');
     Route::get('/vendor/dashboard', 'vendor_store_dashboard')->name('vendor.dashboard');
+    Route::get('/store/{storeId}', 'view_vendor_store')->name('view.vendor.store');
 });

@@ -71,4 +71,9 @@ class StoreController extends Controller
         }
         return Inertia::render('vendor-dashboard/index', $data);
     }
+
+
+    public function view_vendor_store($id){
+        return Inertia::render('stores/view');
+    }
 }

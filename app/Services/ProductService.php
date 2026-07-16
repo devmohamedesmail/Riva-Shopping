@@ -14,19 +14,23 @@ class ProductService
 {
     use UploadsToCloudinary;
 
-    public function __construct(protected CloudinaryService $cloudinaryService){}
+    public function __construct(protected CloudinaryService $cloudinaryService) {}
 
 
     public function getProductDetails(string $slug, int $id)
     {
+        
         $product = Product::with([
-            'category',
             'images',
-            'attributes',
-            'attributeValues.attribute',
+            'category',
+            'store',
             'variants.attributeValues.attribute',
-        ])->where('id', $id)->firstOrFail();
-
+            'attributes' => function ($query) use ($id) {
+                $query->with(['values' => function ($query) use ($id) {
+                    $query->where('product_id', $id);
+                }]);
+            }
+        ])->findOrFail($id);
 
         return $product;
     }
@@ -46,7 +50,7 @@ class ProductService
     {
         $store = $this->getStore();
         if (! $store) return null;
-        
+
 
         $data['store_id'] = $store->id;
 
@@ -145,7 +149,7 @@ class ProductService
             return;
         }
         foreach ($request->file('images') as $index => $file) {
-            $path = $this->cloudinaryService->uploadToCloudinary( $file, 'products');
+            $path = $this->cloudinaryService->uploadToCloudinary($file, 'products');
             $product->images()->create([
                 'image' => $path,
                 'order' => $index
@@ -225,7 +229,7 @@ class ProductService
             $attributeValueIds = [];
 
 
-        
+
             if (!empty($vData['options'])) {
 
                 foreach ($vData['options'] as $attrId => $value) {

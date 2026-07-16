@@ -71,7 +71,14 @@
         "title_ar": " العنوان بالعربي ",
         "title_en": " العنوان بالانجليزي ",
         "description_ar": " الوصف بالعربي ",
-        "description_en": " الوصف بالانجليزي "
+        "description_en": " الوصف بالانجليزي ",
+        "store-name": " اسم المتجر ",
+        "message-vendor":" مراسلة البائع ",
+         "sale":" التخفضات ",
+        "contact":"التواصل",
+        "brand":"العلامة التجارية",
+        "blog":" المدونة ",
+        "visit-vendor-store":" عرض متجر البائع "
     },
      "auth":{
         "login":" تسجيل الدخول ",
@@ -85,7 +92,8 @@
         "have-account":" عندي حساب ؟ ",
         "confirm-password":" تاكيد الرقم السري ",
         "name":" الاسم ",
-        "write-name":" اكتب اسمك "
+        "write-name":" اكتب اسمك ",
+        "google-loign":" الدخول باستخدام جوجل "
     },
     "validation": {
         "is_required": " هذا الحقل مطلوب "
@@ -163,7 +171,8 @@
         "checkout": "إتمام الطلب",
         "continue_shopping": "متابعة التسوق",
         "saved": "محفوظ لاحقًا",
-        "move_to_wishlist": "نقل إلى المفضلة"
+        "move_to_wishlist": "نقل إلى المفضلة",
+        "product_added_failed":" فشل اضافة المنتج في السلة "
     },
     "wishlist": {
         "title": "قائمة المفضلة",
@@ -186,7 +195,7 @@
         },
         "shipping": {
             "heading": "معلومات الشحن",
-            "first_name": "الاسم الأول",
+            "name": "الاسم الأول",
             "last_name": "اسم العائلة",
             "email": "البريد الإلكتروني",
             "phone": "الهاتف",
@@ -195,7 +204,8 @@
             "state": "الولاية / المنطقة",
             "zip": "الرمز البريدي",
             "country": "الدولة",
-            "save_address": "حفظ هذا العنوان للطلبات المستقبلية"
+            "save_address": "حفظ هذا العنوان للطلبات المستقبلية",
+            "note":" ملاحظات "
         },
         "payment": {
             "heading": "طريقة الدفع",

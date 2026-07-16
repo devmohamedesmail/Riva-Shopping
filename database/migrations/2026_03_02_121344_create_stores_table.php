@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('country_id')->nullable()->constrained('users')->onDelete('cascade');
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->longText('logo')->nullable();
+            $table->string('public_logo_id')->nullable();
             $table->longText('cover')->nullable();
+            $table->string('public_cover_id')->nullable();
             $table->longText('description')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
@@ -28,7 +32,16 @@ return new class extends Migration
             $table->string('currency')->nullable();
             $table->string('timezone')->nullable();
             $table->string('status')->default('active');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+
+            // social media
+            $table->longText('facebook')->nullable();
+            $table->longText('titok')->nullable();
+            $table->longText('instagram')->nullable();
+
+            // SEO
+            $table->longText('meta_title')->nullable();
+            $table->longText('meta_description')->nullable();
+          
             $table->timestamps();
         });
     }

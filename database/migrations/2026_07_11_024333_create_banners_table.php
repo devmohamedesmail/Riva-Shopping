@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
             $table->longText('image')->nullable();
+             $table->string('public_id')->nullable();
             $table->text("title_ar")->nullable();
             $table->text("title_en")->nullable();
             $table->text("description_en")->nullable();

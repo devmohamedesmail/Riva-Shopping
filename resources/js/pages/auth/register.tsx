@@ -9,6 +9,7 @@ import AuthLayout from '@/layouts/auth-layout';
 import { login } from '@/routes';
 import { store } from '@/routes/register';
 import { useTranslation } from 'react-i18next';
+import GoogleLogin from './components/google-login';
 
 export default function Register() {
     const {t}=useTranslation();
@@ -100,6 +101,7 @@ export default function Register() {
                                 {processing && <Spinner />}
                                 {t('auth.signup')}
                             </Button>
+                            <GoogleLogin />
                         </div>
 
                         <div className="text-center text-sm text-muted-foreground">

@@ -68,25 +68,32 @@
         "active-status": "Active Status",
         "inactive": "Inactive",
         "active": "Active",
-        "title_ar":"Arabic Title",
-        "title_en":"English Title",
-        "description_ar":"Arabic Description",
-        "description_en":"English Description"
-    
+        "title_ar": "Arabic Title",
+        "title_en": "English Title",
+        "description_ar": "Arabic Description",
+        "description_en": "English Description",
+        "store-name": "Store Name",
+        "message-vendor":"Message Vendor",
+        "sale":"Sale",
+        "contact":"Contact",
+        "brand":"Brand",
+        "blog":"Blog",
+        "visit-vendor-store":"Visit Store Vendor"
     },
-    "auth":{
-        "login":"Log in",
-        "login-des":"",
-        "email":"Email Address",
-        "password":"Password",
-        "rememberme":"Remember me",
-        "no-account":" Don't have an account?",
-        "signup":"Sign Up",
-        "forget-password":"Forget Password",
-        "have-account":"Already have an account?",
-        "confirm-password":"Confirm Password",
-        "name":"Name",
-        "write-name":"Write Your Name"
+    "auth": {
+        "login": "Log in",
+        "login-des": "",
+        "email": "Email Address",
+        "password": "Password",
+        "rememberme": "Remember me",
+        "no-account": " Don't have an account?",
+        "signup": "Sign Up",
+        "forget-password": "Forget Password",
+        "have-account": "Already have an account?",
+        "confirm-password": "Confirm Password",
+        "name": "Name",
+        "write-name": "Write Your Name",
+        "google-loign": "Login With Google"
     },
     "validation": {
         "is_required": "This Field is Required"
@@ -164,7 +171,8 @@
         "checkout": "Proceed to Checkout",
         "continue_shopping": "Continue Shopping",
         "saved": "Saved for later",
-        "move_to_wishlist": "Move to Wishlist"
+        "move_to_wishlist": "Move to Wishlist",
+        "product_added_failed": "Fail To Put in Your Cart"
     },
     "wishlist": {
         "title": "My Wishlist",
@@ -187,7 +195,7 @@
         },
         "shipping": {
             "heading": "Shipping Information",
-            "first_name": "First Name",
+            "name": "First Name",
             "last_name": "Last Name",
             "email": "Email",
             "phone": "Phone",
@@ -196,7 +204,8 @@
             "state": "State / Province",
             "zip": "ZIP / Postal Code",
             "country": "Country",
-            "save_address": "Save this address for future orders"
+            "save_address": "Save this address for future orders",
+            "note":"Notes"
         },
         "payment": {
             "heading": "Payment Method",
@@ -536,64 +545,64 @@
         "added": "Already in cart",
         "featured": "Featured"
     },
-    "settings":{
-  "tabs": {
-    "general": "General",
-    "branding": "Branding",
-    "contact": "Contact",
-    "seo": "SEO",
-    "system": "System"
-  },
-  "cards": {
-    "general_information": "General Information",
-    "general_information_description": "Configure the basic information of your platform.",
-    "branding_assets": "Branding Assets",
-    "branding_assets_description": "Manage your platform logo and favicon.",
-    "contact_information": "Contact Information",
-    "contact_information_description": "Provide public contact information for your platform.",
-    "social_media": "Social Media",
-    "social_media_description": "Manage links to your social media accounts.",
-    "search_engine_optimization": "Search Engine Optimization",
-    "search_engine_optimization_description": "Configure metadata used by search engines.",
-    "system_settings": "System Settings",
-    "system_settings_description": "Configure global platform behavior."
-  },
-  "fields": {
-    "site_name_ar": "Site Name (Arabic)",
-    "site_name_en": "Site Name (English)",
-    "site_description_ar": "Site Description (Arabic)",
-    "site_description_en": "Site Description (English)",
-    "currency_ar": "Currency (Arabic)",
-    "currency_en": "Currency (English)",
-    "timezone": "Timezone",
-    "logo": "Logo",
-    "favicon": "Favicon",
-    "email": "Email",
-    "phone": "Phone",
-    "support": "Support Email",
-    "address": "Address",
-    "facebook": "Facebook",
-    "instagram": "Instagram",
-    "twitter": "Twitter",
-    "linkedin": "LinkedIn",
-    "youtube": "YouTube",
-    "tiktok": "TikTok",
-    "whatsapp": "WhatsApp",
-    "meta_title": "Meta Title",
-    "meta_description": "Meta Description",
-    "meta_keywords": "Meta Keywords"
-  },
-  "system": {
-    "maintenance_mode": "Maintenance Mode",
-    "maintenance_mode_description": "Temporarily disable access to your platform.",
-    "registration_enabled": "User Registration",
-    "registration_enabled_description": "Allow customers to create new accounts.",
-    "vendor_registration_enabled": "Vendor Registration",
-    "vendor_registration_enabled_description": "Allow vendors to register on the platform."
-  },
-  "buttons": {
-    "save": "Save Changes",
-    "cancel": "Cancel"
-  }
-}
+    "settings": {
+        "tabs": {
+            "general": "General",
+            "branding": "Branding",
+            "contact": "Contact",
+            "seo": "SEO",
+            "system": "System"
+        },
+        "cards": {
+            "general_information": "General Information",
+            "general_information_description": "Configure the basic information of your platform.",
+            "branding_assets": "Branding Assets",
+            "branding_assets_description": "Manage your platform logo and favicon.",
+            "contact_information": "Contact Information",
+            "contact_information_description": "Provide public contact information for your platform.",
+            "social_media": "Social Media",
+            "social_media_description": "Manage links to your social media accounts.",
+            "search_engine_optimization": "Search Engine Optimization",
+            "search_engine_optimization_description": "Configure metadata used by search engines.",
+            "system_settings": "System Settings",
+            "system_settings_description": "Configure global platform behavior."
+        },
+        "fields": {
+            "site_name_ar": "Site Name (Arabic)",
+            "site_name_en": "Site Name (English)",
+            "site_description_ar": "Site Description (Arabic)",
+            "site_description_en": "Site Description (English)",
+            "currency_ar": "Currency (Arabic)",
+            "currency_en": "Currency (English)",
+            "timezone": "Timezone",
+            "logo": "Logo",
+            "favicon": "Favicon",
+            "email": "Email",
+            "phone": "Phone",
+            "support": "Support Email",
+            "address": "Address",
+            "facebook": "Facebook",
+            "instagram": "Instagram",
+            "twitter": "Twitter",
+            "linkedin": "LinkedIn",
+            "youtube": "YouTube",
+            "tiktok": "TikTok",
+            "whatsapp": "WhatsApp",
+            "meta_title": "Meta Title",
+            "meta_description": "Meta Description",
+            "meta_keywords": "Meta Keywords"
+        },
+        "system": {
+            "maintenance_mode": "Maintenance Mode",
+            "maintenance_mode_description": "Temporarily disable access to your platform.",
+            "registration_enabled": "User Registration",
+            "registration_enabled_description": "Allow customers to create new accounts.",
+            "vendor_registration_enabled": "Vendor Registration",
+            "vendor_registration_enabled_description": "Allow vendors to register on the platform."
+        },
+        "buttons": {
+            "save": "Save Changes",
+            "cancel": "Cancel"
+        }
+    }
 }

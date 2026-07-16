@@ -304,7 +304,7 @@ export default function ProductModal({ open, onClose, categories, attributes, ed
                         variantFields={variantFields} 
                         removeOptionValue={removeOptionValue} 
                         removeVariant={removeVariant} r
-                        egister={register}
+                        register={register}
                     />
 
                     {/* LOGISTICS TAB */}

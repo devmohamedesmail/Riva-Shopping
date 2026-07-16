@@ -2,9 +2,6 @@ import React from 'react';
 import { Head, Link } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 import VendorLayout from '@/layouts/vendor-layout';
-import { Package, Tag, ShoppingBag, TrendingUp, Plus, ArrowRight, Clock, CheckCircle2, XCircle, Loader2 } from 'lucide-react';
-import StatusBadge from './components/StatusBadge';
-import StatCard from './components/StatCard';
 import StoreStat from './components/StoreStat';
 import NoStore from './components/no-store';
 

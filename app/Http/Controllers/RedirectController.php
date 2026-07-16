@@ -12,8 +12,7 @@ class RedirectController extends Controller
 {
       public function redirect_user()
     {
-        try {
-            $user = Auth::user();
+         $user = Auth::user();
             switch ($user->role_id) {
                 case 1: // admin
 
@@ -23,7 +22,7 @@ class RedirectController extends Controller
                     break;
 
                 case 3: // user
-                    dd("user");
+                    
                     $stores           = Store::paginate(5);
                     $products         = Product::where('is_active', true)->with(['category', 'images'])->paginate(12);
                     $featuredProducts = Product::where('is_active', true)->where('is_featured', true)->with(['category', 'images'])->take(8)->get();
@@ -38,18 +37,10 @@ class RedirectController extends Controller
                     break;
 
                 case 2: // vendor
-                    dd("vendor");
-                    // return Inertia::render('vendor/dashboard/index');
-                    break;
-
+                   return redirect()->route('vendor.dashboard');
                 default:
-                    return Inertia::render('index');
+                    return redirect('/');
                     // return redirect()->route('login');
             }
-        } catch (\Throwable $th) {
-            return Inertia::render("404/index", [
-                "error" => $th->getMessage(),
-            ]);
-        }
     }
 }
