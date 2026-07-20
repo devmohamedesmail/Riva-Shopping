@@ -26,7 +26,7 @@ class ProductController extends Controller
             return redirect()
                 ->route('create-store.page');
         }
-        return Inertia::render('products/vendor-products', $data);
+        return Inertia::render('products/index', $data);
     }
 
 

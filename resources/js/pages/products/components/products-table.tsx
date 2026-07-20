@@ -22,11 +22,11 @@ import DeleteProductDialog from './delete-product-modal';
 
 
 
-export default function ProductsTable({ filtered, products }: any) {
+export default function ProductsTable({ filtered, products ,open, onClose,setModalOpen,editProduct,setEditProduct}: any) {
     const { t, i18n } = useTranslation();
     const isRtl = i18n.language === 'ar';
-    const [modalOpen, setModalOpen] = useState(false);
-    const [editProduct, setEditProduct] = useState<ProductItem | null>(null);
+    // const [modalOpen, setModalOpen] = useState(false);
+    // const [editProduct, setEditProduct] = useState<ProductItem | null>(null);
     const [deleteTarget, setDeleteTarget] = useState<ProductItem | null>(null);
     const [processing, setProcessing] = useState(false);
 
@@ -115,7 +115,10 @@ export default function ProductsTable({ filtered, products }: any) {
                                             <DropdownMenuContent align="end" className="w-40">
                                                 <DropdownMenuLabel>{t('common.actions')}</DropdownMenuLabel>
                                                 <DropdownMenuItem
-                                                    // onClick={() => { setEditProduct(product); setModalOpen(true); }} 
+                                                    onClick={() => { 
+                                                        setEditProduct(product); 
+                                                        setModalOpen(true); 
+                                                }} 
 
                                                     className="gap-2 cursor-pointer">
                                                     <Pencil size={14} className="text-gray-500" />{t('common.edit')}

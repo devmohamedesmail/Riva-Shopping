@@ -1,16 +1,10 @@
 import React from 'react'
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
+import { Select,SelectContent,SelectItem,SelectTrigger,SelectValue} from "@/components/ui/select";
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
+import useImport from '@/hooks/use-import';
 export default function VariantTab({ 
     activeTab, 
     productType, 
@@ -28,15 +22,16 @@ export default function VariantTab({
     register
 }: any) {
 
-    const { t, i18n } = useTranslation();
-    const isRtl = i18n.language === 'ar';
+ const {t,isRtl}=useImport()
 
     return (
         <div className={activeTab === 'variants' && productType === 'variant' ? 'block space-y-4' : 'hidden'}>
             <div className="flex justify-between items-center mb-2">
                 <div>
-                    <h3 className="text-sm font-semibold">{t("common.product-options")}</h3>
-                    <p className="text-xs text-gray-500">Define attributes like Size or Color, then generate combos.</p>
+                    <h3 className="text-sm font-semibold">{t("products.product-options")}</h3>
+                    <p className="text-xs text-gray-500">
+                        {t("products.options-des")}
+                        </p>
                 </div>
             </div>
 
@@ -44,7 +39,7 @@ export default function VariantTab({
             <div className="bg-gray-50 dark:bg-gray-800/30 p-4 rounded-xl border border-gray-200 dark:border-gray-800 space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-end gap-3">
                     <div className="flex-1 space-y-1.5">
-                        <Label className="text-xs">Select Attribute</Label>
+                        <Label className="text-xs">{t("products.select-attribute")}</Label>
                         <Select value={currentAttrId} onValueChange={setCurrentAttrId}>
                             <SelectTrigger className="h-9 bg-white dark:bg-gray-900">
                                 <SelectValue placeholder="e.g. Size" />
@@ -59,12 +54,14 @@ export default function VariantTab({
                         </Select>
                     </div>
                     <div style={{ flex: 2 }} className="space-y-1.5">
-                        <Label className="text-xs">Add Values (Press Enter or comma)</Label>
+                        <Label className="text-xs">
+                            {t("products.add-values")}
+                            </Label>
                         <Input
                             value={currentAttrValue}
                             onChange={e => setCurrentAttrValue(e.target.value)}
                             onKeyDown={handleAddOptionValue}
-                            placeholder="Type value and press enter..."
+                            placeholder={t("products.add-values")}
                             className="h-9 bg-white dark:bg-gray-900"
                             disabled={!currentAttrId}
                         />
@@ -73,7 +70,7 @@ export default function VariantTab({
                         if (currentAttrValue && currentAttrId) {
                             handleAddOptionValue({ key: 'Enter', preventDefault: () => { } } as any);
                         }
-                    }} size="sm" className="h-9" disabled={!currentAttrId || !currentAttrValue}>Add</Button>
+                    }} size="sm" className="h-9" disabled={!currentAttrId || !currentAttrValue}>{t("products.add")}</Button>
                 </div>
 
                 {/* DISPLAY ADDED OPTIONS */}
@@ -99,7 +96,7 @@ export default function VariantTab({
                         })}
                         <div className="pt-2">
                             <Button type="button" onClick={generateVariants} className="w-full bg-black hover:bg-gray-800 text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 shadow-sm gap-2">
-                                Generate Variant Combinations
+                             {t("products.generate-variants")}   
                             </Button>
                         </div>
                     </div>
@@ -131,26 +128,26 @@ export default function VariantTab({
 
                                 <div className="grid grid-cols-2 gap-4 mb-4">
                                     <div className="space-y-1.5">
-                                        <Label className="text-xs">Variant Price *</Label>
+                                        <Label className="text-xs">{t("products.price")}</Label>
                                         <Input type="number" step="0.01" {...register(`variants.${index}.price`)} className="h-8 text-sm" />
                                     </div>
                                     <div className="space-y-1.5">
-                                        <Label className="text-xs">Variant Sale Price</Label>
+                                        <Label className="text-xs">{t("products.sale_price")}</Label>
                                         <Input type="number" step="0.01" {...register(`variants.${index}.sale_price`)} className="h-8 text-sm" />
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-1.5">
-                                        <Label className="text-xs">Stock</Label>
+                                        <Label className="text-xs">{t("products.stock")}</Label>
                                         <Input type="number" {...register(`variants.${index}.stock`)} className="h-8 text-sm" />
                                     </div>
                                     <div className="space-y-1.5">
-                                        <Label className="text-xs">SKU</Label>
+                                        <Label className="text-xs">{t("products.sku")}</Label>
                                         <Input {...register(`variants.${index}.sku`)} className="h-8 text-sm" />
                                     </div>
                                 </div>
                                 <div className="mt-3 flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-3">
-                                    <Label className="text-xs text-gray-500">Active Status</Label>
+                                    <Label className="text-xs text-gray-500">{t("products.active-status")}</Label>
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input type="checkbox" className="sr-only peer" {...register(`variants.${index}.is_active`)} />
                                         <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-0.5 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-orange-500"></div>

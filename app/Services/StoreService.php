@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateStoreRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Store;
+use App\Services\CloudinaryService;
 use App\Traits\UploadsToCloudinary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -14,6 +15,7 @@ use Illuminate\Support\Str;
 class StoreService
 {
     use UploadsToCloudinary;
+    public function __construct(protected CloudinaryService $cloudinaryService) {}
 
     public function createStore(StoreStoreRequest $request)
     {
@@ -25,15 +27,17 @@ class StoreService
             $slug = $base . '-' . $i++;
         }
 
-        $logoUrl  = null;
-        $coverUrl = null;
+        $logo_result  = null;
+        $cover_result = null;
 
         if ($request->hasFile('logo')) {
-            $logoUrl = $this->uploadToCloudinary($request->file('logo'), 'stores/logos');
+            // $logoUrl = $this->uploadToCloudinary($request->file('logo'), 'stores/logos');
+            $logo_result = $this->cloudinaryService->uploadToCloudinary($request->file('logo'), 'stores/logos');
         }
 
         if ($request->hasFile('cover')) {
-            $coverUrl = $this->uploadToCloudinary($request->file('cover'), 'stores/covers');
+            // $coverUrl = $this->uploadToCloudinary($request->file('cover'), 'stores/covers');
+            $cover_result = $this->uploadToCloudinary($request->file('cover'), 'stores/covers');
         }
 
         $store = Store::create([
@@ -47,13 +51,18 @@ class StoreService
             'state'       => $request->state,
             'zip'         => $request->zip,
             'country'     => $request->country,
+            'country_id'     => $request->integer('country_id'),
             'currency'    => $request->currency ?? 'USD',
             'timezone'    => $request->timezone ?? 'UTC',
-            'logo'        => $logoUrl,
-            'cover'       => $coverUrl,
+            'logo'        => $logo_result['url'] ?? null,
+            'public_logo_id'        => $logo_result['public_id'] ?? null,
+            'cover'       => $cover_result["url"] ?? null,
+            'public_cover_id'       => $cover_result["public_id"] ?? null,
             'status'      => 'active',
             'user_id'     => Auth::id(),
         ]);
+
+        
 
         $user = Auth::user();
 

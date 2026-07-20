@@ -21,10 +21,6 @@ class VendorProductController extends Controller
         protected ProductService $productService
     ) {}
 
-    private function getStore()
-    {
-        return Store::where('user_id', auth()->id())->first();
-    }
-
+  
   
 }

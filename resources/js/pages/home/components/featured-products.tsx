@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import ProductCard, { Product } from './product-card';
-import SectionTitle from '../ui/section-title';
-import { Button } from '../ui/button';
+import SectionTitle from '@/components/shared/section-title';
+import { Button } from '@/components/ui/button';
+
+
 
 export default function FeaturedProducts({ featuredProducts }: { featuredProducts: Product[] }) {
     const { t, i18n } = useTranslation();

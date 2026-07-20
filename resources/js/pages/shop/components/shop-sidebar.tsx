@@ -1,10 +1,12 @@
+import useCategories from '@/hooks/use-categories'
+import useCurrency from '@/hooks/use-currency'
 import { Category } from '@/types/product'
-import { usePage } from '@inertiajs/react'
-import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 export default function ShopSidebar({ selectedCats, setSelectedCats, toggleCat, setPriceMax, priceMax }: any) {
-    const { categories , settings } = usePage().props as any
+
+    const { categories } = useCategories()
+    const { currency } = useCurrency()
     const { t } = useTranslation();
     return (
         <aside className="hidden lg:block w-60 shrink-0">
@@ -41,7 +43,7 @@ export default function ShopSidebar({ selectedCats, setSelectedCats, toggleCat, 
                         className="w-full accent-orange-500"
                     />
                     <div className="flex justify-between text-xs text-gray-500 mt-1">
-                        <span>{settings.currency_ar} 0</span><span className="font-semibold text-orange-600">{settings.currency_ar} {priceMax}</span>
+                        <span>{currency} 0</span><span className="font-semibold text-orange-600">{currency} {priceMax}</span>
                     </div>
                 </div>
             </div>

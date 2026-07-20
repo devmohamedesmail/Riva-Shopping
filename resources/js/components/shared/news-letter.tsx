@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Send, Mail, CheckCircle } from 'lucide-react';
+import useImport from '@/hooks/use-import';
 
 export default function Newsletter() {
+    const {t}=useImport()
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
@@ -42,10 +44,11 @@ export default function Newsletter() {
                     <Mail size={28} className="text-[#c96]" />
                 </div>
                 <h2 className="text-4xl font-extrabold text-white mb-3">
-                    Join Our Newsletter
+                    {t('home.newsletter.join')}
                 </h2>
                 <p className="text-gray-300 text-base mb-8 max-w-xl mx-auto">
-                    Subscribe to get exclusive deals, style tips, and early access to our biggest sales — delivered straight to your inbox.
+                    {t('home.newsletter.des')}
+                   
                 </p>
 
                 {submitted ? (
@@ -61,16 +64,16 @@ export default function Newsletter() {
                                     type="email"
                                     value={email}
                                     onChange={e => { setEmail(e.target.value); setError(''); }}
-                                    placeholder="Enter your email address"
+                                    placeholder={t('auth.email')}
                                     className={`w-full bg-white/10 backdrop-blur-sm border ${error ? 'border-red-400' : 'border-white/20'} text-white placeholder-gray-400 rounded-full px-5 py-3.5 text-sm outline-none focus:border-[#c96] transition-colors`}
                                 />
                             </div>
                             <button
                                 type="submit"
-                                className="group flex items-center justify-center gap-2 bg-[#c96] hover:bg-[#b8852a] text-white font-bold px-7 py-3.5 rounded-full text-sm transition-all duration-200 hover:gap-3 shrink-0"
+                                className="group flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white font-bold px-7 py-3.5 rounded-full text-sm transition-all duration-200 hover:gap-3 shrink-0"
                             >
                                 <Send size={15} />
-                                Subscribe
+                                {t('home.newsletter.subscribe')}
                             </button>
                         </div>
                         {error && <p className="mt-2 text-red-400 text-xs">{error}</p>}
@@ -83,9 +86,9 @@ export default function Newsletter() {
                 {/* Perks */}
                 <div className="flex justify-center gap-8 mt-10 text-center">
                     {[
-                        { emoji: '🎁', label: 'Welcome Discount' },
-                        { emoji: '⚡', label: 'Early Sale Access' },
-                        { emoji: '📦', label: 'Exclusive Offers' },
+                        { emoji: '🎁', label: t('home.newsletter.welcome-discount') },
+                        { emoji: '⚡', label: t('home.newsletter.early-access') },
+                        { emoji: '📦', label: t('home.newsletter.offers') },
                     ].map((p) => (
                         <div key={p.label} className="text-gray-400">
                             <div className="text-2xl mb-1">{p.emoji}</div>

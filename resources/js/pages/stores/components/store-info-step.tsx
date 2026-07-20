@@ -1,12 +1,12 @@
 import React from 'react'
-import {Zap,Phone,Mail} from 'lucide-react'
+import { Zap, Phone, Mail } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import ErrorMsg from '@/components/ui/error-message';
 import { Textarea } from '@/components/ui/textarea';
-export default function StoreInfoStep({register, errors}:any) {
-    const {t}=useTranslation();
+export default function StoreInfoStep({ register, errors }: any) {
+    const { t } = useTranslation();
     return (
         <div className="space-y-5">
             <div className="flex items-center gap-2 mb-1">
@@ -45,22 +45,7 @@ export default function StoreInfoStep({register, errors}:any) {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {/* <div className="space-y-1.5">
-                    <Label>{t('create_store.info.currency')} <span className="text-red-500">*</span></Label>
-                    <SelectField icon={DollarSign} {...register('currency')}>
-                        {CURRENCIES.map(c => <option key={c} value={c}>{c}</option>)}
-                    </SelectField>
-                    <ErrorMsg message={errors.currency?.message} />
-                </div> */}
-                {/* <div className="space-y-1.5">
-                    <Label>{t('create_store.info.timezone')} <span className="text-red-500">*</span></Label>
-                    <SelectField icon={Clock} {...register('timezone')}>
-                        {TIMEZONES.map(tz => <option key={tz} value={tz}>{tz}</option>)}
-                    </SelectField>
-                    <ErrorMsg message={errors.timezone?.message} />
-                </div> */}
-            </div>
+
         </div>
     )
 }

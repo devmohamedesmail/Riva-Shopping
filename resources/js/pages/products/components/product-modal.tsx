@@ -13,6 +13,7 @@ import PricingTab from './pricing-tab';
 import ShippingTab from './shipping-tab';
 import VisibilityTab from './visibility-tab';
 import VariantTab from './variant-tab';
+import useImport from '@/hooks/use-import';
 
 
 
@@ -58,8 +59,7 @@ const productSchema = z.object({
 
 type ProductFormData = z.input<typeof productSchema>;
 export default function ProductModal({ open, onClose, categories, attributes, editProduct, currency, processing, onSubmit }: any) {
-    const { t, i18n } = useTranslation();
-    const isRtl = i18n.language === 'ar';
+    const { t, isRtl } = useImport()
     const [activeTab, setActiveTab] = useState<'general' | 'media' | 'inventory' | 'variants' | 'shipping' | 'visibility'>('general');
     const [previewImages, setPreviewImages] = useState<{ url: string, file?: File, existing?: boolean }[]>([]);
     const fileInputRef = useRef<HTMLInputElement>(null);
@@ -71,24 +71,46 @@ export default function ProductModal({ open, onClose, categories, attributes, ed
     const { register, handleSubmit, reset, control, watch, setValue, formState: { errors } } = useForm<ProductFormData>({
         resolver: zodResolver(productSchema),
         defaultValues: {
-            title: '', description: '', price: 0, sale_price: null, product_type: 'simple', product_kind: 'physical',
-            stock: 0, sku: '', is_active: true, is_popular: false, is_featured: false,
-            weight: null, length: null, width: null, height: null, tax: 0, shipping_cost: null, category_id: 0,
+            title: '',
+            description: '',
+            price: 0,
+            sale_price: null,
+            product_type: 'simple',
+            product_kind: 'physical',
+            stock: 0,
+            sku: '',
+            is_active: true,
+            is_popular: false,
+            is_featured: false,
+            weight: null,
+            length: null,
+            width: null,
+            height: null,
+            tax: 0,
+            shipping_cost: null,
+            category_id: 0,
             variants: [],
             images: null,
         }
     });
 
     const productType = watch('product_type');
-    const { fields: variantFields, append: appendVariant, remove: removeVariant } = useFieldArray({
-        control,
-        name: "variants"
-    });
+    const {
+        fields: variantFields,
+        append: appendVariant,
+        remove: removeVariant } = useFieldArray({
+            control,
+            name: "variants"
+        });
 
-    const { fields: optionFields, append: appendOption, remove: removeOption, update: updateOption } = useFieldArray({
-        control,
-        name: "product_attributes"
-    });
+    const {
+        fields: optionFields,
+        append: appendOption,
+        remove: removeOption,
+        update: updateOption } = useFieldArray({
+            control,
+            name: "product_attributes"
+        });
 
     React.useEffect(() => {
         if (open) {
@@ -276,33 +298,48 @@ export default function ProductModal({ open, onClose, categories, attributes, ed
                 <form id="product-form" onSubmit={handleSubmit(onSubmit)} className="p-6 overflow-y-auto space-y-6 flex-1 bg-white dark:bg-gray-900">
                     {/* GENERAL TAB */}
 
-                    <GereralTab activeTab={activeTab} register={register} errors={errors} control={control} categories={categories} />
+                    <GereralTab
+                        activeTab={activeTab}
+                        register={register}
+                        errors={errors}
+                        control={control}
+                        categories={categories}
+                    />
 
                     {/* MEDIA TAB */}
 
-                    <ImagesTab activeTab={activeTab} previewImages={previewImages} fileInputRef={fileInputRef} handleImageChange={handleImageChange} setPreviewImages={setPreviewImages} />
+                    <ImagesTab
+                        activeTab={activeTab}
+                        previewImages={previewImages}
+                        fileInputRef={fileInputRef}
+                        handleImageChange={handleImageChange}
+                        setPreviewImages={setPreviewImages} />
 
                     {/* INVENTORY & PRICING TAB */}
 
-                    <PricingTab activeTab={activeTab} register={register} errors={errors} productType={productType} />
+                    <PricingTab
+                        activeTab={activeTab}
+                        register={register}
+                        errors={errors}
+                        productType={productType} />
 
                     {/* VARIANTS TAB */}
-                   
+
 
 
                     <VariantTab
-                        activeTab={activeTab} 
-                        productType={productType} 
+                        activeTab={activeTab}
+                        productType={productType}
                         attributes={attributes}
-                        currentAttrId={currentAttrId} 
-                        setCurrentAttrId={setCurrentAttrId} 
+                        currentAttrId={currentAttrId}
+                        setCurrentAttrId={setCurrentAttrId}
                         currentAttrValue={currentAttrValue}
                         optionFields={optionFields}
-                        setCurrentAttrValue={setCurrentAttrValue} 
-                        handleAddOptionValue={handleAddOptionValue} 
-                        generateVariants={generateVariants} 
-                        variantFields={variantFields} 
-                        removeOptionValue={removeOptionValue} 
+                        setCurrentAttrValue={setCurrentAttrValue}
+                        handleAddOptionValue={handleAddOptionValue}
+                        generateVariants={generateVariants}
+                        variantFields={variantFields}
+                        removeOptionValue={removeOptionValue}
                         removeVariant={removeVariant} r
                         register={register}
                     />

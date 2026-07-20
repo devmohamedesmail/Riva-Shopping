@@ -79,6 +79,7 @@
         "brand":"Brand",
         "blog":"Blog",
         "visit-vendor-store":"Visit Store Vendor"
+    
     },
     "auth": {
         "login": "Log in",
@@ -123,6 +124,14 @@
             "logout": "Logout",
             "profile": "Profile",
             "my-account": "My Account"
+        },
+        "newsletter":{
+            "join":"Join Our Newsletter",
+            "des":" Subscribe to get exclusive deals, style tips, and early access to our biggest sales — delivered straight to your inbox.",
+            "subscribe":"Subscribe",
+            "welcome-discount":"Welcome Discount",
+            "early-access":"Early Sale Access",
+            "offers":"Exclusive Offers"
         }
     },
     "shop": {
@@ -543,7 +552,18 @@
     "products": {
         "add-to-cart": "Add To Cart",
         "added": "Already in cart",
-        "featured": "Featured"
+        "featured": "Featured",
+        "product-options":"Products Options",
+        "options-des":"Define attributes like Size or Color, then generate combos.",
+        "select-attribute":"Select Attribute",
+        "add-values":"Add Values (Press Enter or comma)",
+        "generate-variants":"Generate Variant Combinations",
+        "price":"Price",
+        "sale_price":"Sale Price",
+        "stock":"Stock",
+        "sku":"SKU",
+        "active-status":"Active Status",
+        "add":"ADD"
     },
     "settings": {
         "tabs": {

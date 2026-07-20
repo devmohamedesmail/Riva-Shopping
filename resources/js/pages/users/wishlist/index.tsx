@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Heart, ShoppingCart, Trash2, Share2, Star, ShoppingBag, ArrowRight } from 'lucide-react';
 import TopBar from '@/components/shared/top-header';
 import Navbar from '@/components/shared/navbar';
-import Footer from '@/components/home/footer';
+import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 
 interface WishlistItem {

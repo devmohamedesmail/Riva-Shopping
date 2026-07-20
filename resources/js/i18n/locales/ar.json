@@ -73,27 +73,27 @@
         "description_ar": " الوصف بالعربي ",
         "description_en": " الوصف بالانجليزي ",
         "store-name": " اسم المتجر ",
-        "message-vendor":" مراسلة البائع ",
-         "sale":" التخفضات ",
-        "contact":"التواصل",
-        "brand":"العلامة التجارية",
-        "blog":" المدونة ",
-        "visit-vendor-store":" عرض متجر البائع "
+        "message-vendor": " مراسلة البائع ",
+        "sale": " التخفضات ",
+        "contact": "التواصل",
+        "brand": "العلامة التجارية",
+        "blog": " المدونة ",
+        "visit-vendor-store": " عرض متجر البائع "
     },
-     "auth":{
-        "login":" تسجيل الدخول ",
-        "login-des":"",
-        "email":"البريد الإلكتروني",
-        "password":" الرقم السري ",
-        "rememberme":" ذكرني ",
-        "no-account":" ليس عندي حساب ؟ ",
-        "signup":" انشاء حساب ",
-        "forget-password":" نسيت الرقم السري ؟ ",
-        "have-account":" عندي حساب ؟ ",
-        "confirm-password":" تاكيد الرقم السري ",
-        "name":" الاسم ",
-        "write-name":" اكتب اسمك ",
-        "google-loign":" الدخول باستخدام جوجل "
+    "auth": {
+        "login": " تسجيل الدخول ",
+        "login-des": "",
+        "email": "البريد الإلكتروني",
+        "password": " الرقم السري ",
+        "rememberme": " ذكرني ",
+        "no-account": " ليس عندي حساب ؟ ",
+        "signup": " انشاء حساب ",
+        "forget-password": " نسيت الرقم السري ؟ ",
+        "have-account": " عندي حساب ؟ ",
+        "confirm-password": " تاكيد الرقم السري ",
+        "name": " الاسم ",
+        "write-name": " اكتب اسمك ",
+        "google-loign": " الدخول باستخدام جوجل "
     },
     "validation": {
         "is_required": " هذا الحقل مطلوب "
@@ -172,7 +172,7 @@
         "continue_shopping": "متابعة التسوق",
         "saved": "محفوظ لاحقًا",
         "move_to_wishlist": "نقل إلى المفضلة",
-        "product_added_failed":" فشل اضافة المنتج في السلة "
+        "product_added_failed": " فشل اضافة المنتج في السلة "
     },
     "wishlist": {
         "title": "قائمة المفضلة",
@@ -205,7 +205,7 @@
             "zip": "الرمز البريدي",
             "country": "الدولة",
             "save_address": "حفظ هذا العنوان للطلبات المستقبلية",
-            "note":" ملاحظات "
+            "note": " ملاحظات "
         },
         "payment": {
             "heading": "طريقة الدفع",
@@ -538,7 +538,18 @@
     "products": {
         "add-to-cart": " اضافة الي السلة ",
         "added": " تم الاضافه  ",
-        "featured": " مميز "
+        "featured": " مميز ",
+        "product-options": " انواع المنتج ",
+        "options-des": " حدد الخواص مثل اللون ، الحجم ... ",
+        "select-attribute": " اختر الخاصية ",
+        "add-values": " اضف القيمة ثم اضغط اضافة ",
+        "generate-variants": " توليد الانواع ",
+        "price": " السعر ",
+        "sale_price": " السعر بعد التخفيض ",
+        "stock": " المخزون ",
+        "sku": "SKU",
+        "active-status": " نشط ",
+        "add": " اضافة "
     },
     "settings": {
         "tabs": {

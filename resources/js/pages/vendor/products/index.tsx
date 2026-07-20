@@ -18,9 +18,10 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import ProductModal from '@/components/vendor/products/product-modal';
-import DeleteDialog from '@/components/vendor/products/delete-modal';
+
 import { Category, AttributeValue, Attribute, ProductImage, Variant, ProductItem, PaginatedProducts, Store } from '@/types/product';
+import ProductModal from '@/pages/products/components/product-modal';
+import DeleteProductDialog from '@/pages/products/components/delete-product-modal';
 
 
 
@@ -292,7 +293,7 @@ export default function VendorProducts({ store, products, categories, attributes
 
 
             <ProductModal open={modalOpen} onClose={() => setModalOpen(false)} categories={categories} attributes={attributes} editProduct={editProduct} currency={store.currency} processing={processing} onSubmit={handleSubmit} />
-            <DeleteDialog open={!!deleteTarget} onCancel={() => setDeleteTarget(null)} onConfirm={handleDelete} processing={processing} />
+            <DeleteProductDialog open={!!deleteTarget} onCancel={() => setDeleteTarget(null)} onConfirm={handleDelete} processing={processing} />
         </VendorLayout>
     );
 }

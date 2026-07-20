@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Shield, ChevronRight, Lock, Eye, Share2, Cookie, Key, MessageSquare } from 'lucide-react';
 import TopBar from '@/components/shared/top-header';
 import Navbar from '@/components/shared/navbar';
-import Footer from '@/components/home/footer';
+import Footer from '@/components/shared/footer';
 
 const SECTIONS = [
     { key: 'collection', icon: Eye },

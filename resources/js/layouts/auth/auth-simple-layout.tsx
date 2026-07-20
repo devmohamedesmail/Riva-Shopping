@@ -30,9 +30,10 @@ export default function AuthSimpleLayout({
                             </p>
                         </div>
                     </div>
-                    {children}
                 </div>
+                {children}
             </div>
         </div>
+        
     );
 }

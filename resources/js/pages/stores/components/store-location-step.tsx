@@ -1,13 +1,18 @@
 import React from 'react'
-import { MapPin } from 'lucide-react'
+import { MapPin, Globe } from 'lucide-react'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
-import { useTranslation } from 'react-i18next'
 import ErrorMsg from '@/components/ui/error-message';
+import useCountries from '@/hooks/use-countries'
+import useImport from '@/hooks/use-import'
+import { Controller } from 'react-hook-form';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
-export default function StoreLocationStep({register,errors}:any) {
+export default function StoreLocationStep({ register, errors, control }: any) {
 
-    const { t } = useTranslation();
+    const { countries } = useCountries()
+    const { t, isRtl } = useImport()
+    console.log("Erros" ,errors)
     return (
         <div className="space-y-5">
             <div className="flex items-center gap-2 mb-1">
@@ -37,21 +42,32 @@ export default function StoreLocationStep({register,errors}:any) {
                 </div>
             </div>
 
-            {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                    <Label>{t('create_store.location.zip')}</Label>
-                    <Input {...register('zip')} placeholder={t('create_store.location.zip_placeholder')} />
-                    <ErrorMsg message={errors.zip?.message} />
-                </div>
-                <div className="space-y-1.5">
-                    <Label>{t('create_store.location.country')}</Label>
-                    <SelectField icon={Globe} {...register('country')}>
-                        <option value="">{t('create_store.location.country_placeholder')}</option>
-                        {COUNTRIES.map(c => <option key={c} value={c}>{c}</option>)}
-                    </SelectField>
-                    <ErrorMsg message={errors.country?.message} />
-                </div>
-            </div> */}
+            <div className="space-y-1.5 w-full">
+                <Label>{t('create_store.location.country')} <span className="text-red-500">*</span></Label>
+                <Controller
+                    name="country_id"
+                    control={control}
+                    render={({ field }) => (
+                        <Select
+                            value={field.value?.toString() || ""} onValueChange={(val) => field.onChange(String(val))}>
+                            <SelectTrigger className={`w-full ${errors.country_id ? 'border-red-500 ' : ''}`}>
+                                <SelectValue placeholder={t('create_store.location.country_placeholder')} />
+                            </SelectTrigger>
+                            <SelectContent>
+                                {countries.map((c: any) => (
+                                    <SelectItem key={c.id} value={c.id.toString()}>
+                                        {isRtl ? c.name_ar : c.name_en}
+                                    </SelectItem>
+                                ))}
+                            </SelectContent>
+                        </Select>
+                    )}
+                />
+             <ErrorMsg message={errors.country_id?.message} />
+                {/* {errors.country_id && <p className="text-xs text-red-500">{errors.country_id.message}</p>} */}
+            </div>
+
+
         </div>
     )
 }

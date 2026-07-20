@@ -18,7 +18,7 @@ interface Props {
 
 
 
-export default function VendorSettings({ store, categories, storeCategories }: Props) {
+export default function UpdateStore({ store, categories, storeCategories }: Props) {
     const { t, i18n } = useTranslation();
     const [processing, setProcessing] = useState(false);
     const [selectedCats, setSelectedCats] = useState<number[]>(storeCategories);
@@ -75,11 +75,30 @@ export default function VendorSettings({ store, categories, storeCategories }: P
                 {/* Categories */}
                 <StoreCategoriesSection selectedCats={selectedCats} categories={categories} parents={parents} getChildren={getChildren} toggleCat={toggleCat} />
 
+
+
+
+                {/* <ImagePicker
+                    label={t('create_store.media.logo')}
+                    preview={logoPreview}
+                    onFile={f => { setLogoFile(f); setLogoPreview(URL.createObjectURL(f)); }}
+                    onClear={() => { setLogoFile(null); setLogoPreview(null); }}
+                />
+
+                <ImagePicker
+                    label={t('create_store.media.cover')}
+                    preview={coverPreview}
+                    onFile={f => { setCoverFile(f); setCoverPreview(URL.createObjectURL(f)); }}
+                    onClear={() => { setCoverFile(null); setCoverPreview(null); }}
+                /> */}
+
+
+
                 <div className="flex justify-end pt-2">
-                    <Button 
-                    
-                    
-                    type="submit" disabled={processing} className="bg-orange-500 hover:bg-orange-600 text-white border-0 min-w-36">
+                    <Button
+
+
+                        type="submit" disabled={processing} className="bg-orange-500 hover:bg-orange-600 text-white border-0 min-w-36">
                         {processing ? t('vendor.settings.saving') : t('vendor.settings.save')}
                     </Button>
                 </div>

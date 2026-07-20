@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Mail, Phone, MapPin, Clock, Send, ChevronDown, ChevronUp, CheckCircle, AlertCircle } from 'lucide-react';
 import TopBar from '@/components/shared/top-header';
 import Navbar from '@/components/shared/navbar';
-import Footer from '@/components/home/footer';
+import Footer from '@/components/shared/footer';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';

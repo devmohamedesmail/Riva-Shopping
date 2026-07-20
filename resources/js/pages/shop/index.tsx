@@ -26,8 +26,7 @@ const PRODUCTS = Array.from({ length: 24 }, (_, i) => ({
     inStock: Math.random() > 0.15,
 }));
 
-const CATEGORIES = ['Fashion', 'Electronics', 'Home & Living', 'Sports', 'Beauty', 'Watches', 'Jewelry'];
-const BRANDS = ['Nike', 'Apple', 'Samsung', 'Zara', 'IKEA', 'Gucci', 'Sony'];
+
 
 function Stars({ rating }: { rating: number }) {
     return (
@@ -150,13 +149,8 @@ export default function ShopPage() {
                             ) : (
                                 <div className={view === 'grid' ? 'grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4' : 'flex flex-col gap-4'}>
                                     {sorted.map(p => (
-                                        // <ProductCard
-                                        //     key={p.id}
-                                        //     p={p}
-                                        //     onAddToCart={() => setCartCount(c => c + 1)}
-                                        //     onWishlist={() => { }}
-                                        // />
-                                        <ProductCardView  />
+                                      <></>
+                                        // <ProductCardView  />
                                     
                                     ))}
                                 </div>

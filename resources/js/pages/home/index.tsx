@@ -12,10 +12,10 @@ import StoresSection from './components/stores-section';
 import ProductsSection from './components/products-section';
 import Footer from '@/components/shared/footer';
 import MainLayout from '@/layouts/main-layout';
+import useProducts from '@/hooks/use-products';
 
-export default function Home({ stores, products, featuredProducts }: { stores: any, products: any, featuredProducts: any }) {
-    const { settings } = usePage().props
-
+export default function Home({ stores, featuredProducts }: { stores: any,  featuredProducts: any }) {
+const {products}=useProducts();
 
     return (
         <MainLayout>

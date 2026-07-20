@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Heart, Star, ShoppingCart, Eye, ArrowLeftRight } from 'lucide-react';
 import { Link } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 
 export interface Product {
     id: number;
