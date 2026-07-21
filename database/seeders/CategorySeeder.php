@@ -14,12 +14,12 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
 
-        // تعطيل الـforeign key مؤقتًا لمسح البيانات
+      
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('categories')->delete();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        // فئات رئيسية
+      
         $mainCategories = [
             ['name_en'=>'Electronics','name_ar'=>'الإلكترونيات','slug'=>'electronics','description_en'=>'Electronic devices and gadgets','description_ar'=>'الأجهزة الإلكترونية','image'=>'https://images.unsplash.com/photo-1519389950473-47ba0277781c','is_active'=>1],
             ['name_en'=>'Fashion','name_ar'=>'الأزياء','slug'=>'fashion','description_en'=>'Clothing and fashion products','description_ar'=>'الملابس والموضة','image'=>'https://images.unsplash.com/photo-1445205170230-053b83016050','is_active'=>1],

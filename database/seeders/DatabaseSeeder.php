@@ -22,6 +22,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CategorySeeder::class,
+            BrandSeeder::class,
+            CountrySeeder::class,
+            BannerSeeder::class,
+            SettingSeeder::class,
         ]);
     }
 }
