@@ -628,5 +628,21 @@
             "save": "Save Changes",
             "cancel": "Cancel"
         }
+    },
+    "store": {
+        "store_profile": "Store Profile",
+        "browse_products_from": "Browse products from",
+        "products": "Products",
+        "categories": "Categories",
+        "search_in_store": "Search in Store",
+        "search_placeholder": "Search products…",
+        "filter_by_category": "Filter by Category",
+        "store_info": "Store Info",
+        "share_store": "Share Store",
+        "link_copied": "Link Copied!",
+        "products_found": "products found",
+        "no_products_found": "No products found",
+        "try_different_search": "Try a different search term or clear your filters.",
+        "clear_filters": "Clear Filters"
     }
 }

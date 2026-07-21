@@ -614,5 +614,21 @@
             "save": "حفظ التغييرات",
             "cancel": "إلغاء"
         }
+    },
+    "store": {
+        "store_profile": "ملف المتجر",
+        "browse_products_from": "تصفح المنتجات من",
+        "products": "منتج",
+        "categories": "فئة",
+        "search_in_store": "البحث في المتجر",
+        "search_placeholder": "ابحث عن منتجات…",
+        "filter_by_category": "تصفية حسب الفئة",
+        "store_info": "معلومات المتجر",
+        "share_store": "مشاركة المتجر",
+        "link_copied": "تم نسخ الرابط!",
+        "products_found": "منتج موجود",
+        "no_products_found": "لا توجد منتجات",
+        "try_different_search": "جرّب كلمة بحث مختلفة أو أزل الفلاتر.",
+        "clear_filters": "مسح الفلاتر"
     }
 }

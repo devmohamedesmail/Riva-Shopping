@@ -63,7 +63,7 @@ class StoreService
             'user_id'     => Auth::id(),
         ]);
 
-        
+
 
         $user = Auth::user();
         $role = Role::where('slug', 'vendor')->first();
@@ -170,5 +170,22 @@ class StoreService
 
 
         return $store;
+    }
+
+
+
+
+
+
+    public function getStoreProfile(int $id)
+    {
+        $store = Store::findOrFail($id);
+        $products = $store->products()->paginate(10);
+        $categories = $store->categories()->get();
+        return [
+            'store' => $store,
+            'products' => $products,
+            'categories' => $categories
+        ];
     }
 }

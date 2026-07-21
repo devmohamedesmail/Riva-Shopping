@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStoreRequest;
 use App\Http\Requests\UpdateStoreRequest;
+use App\Models\Store;
 use App\Services\StoreService;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -73,7 +74,9 @@ class StoreController extends Controller
     }
 
 
-    public function view_vendor_store($id){
-        return Inertia::render('stores/view');
+    public function view_vendor_store(int $id)
+    {
+        $data = $this->storeService->getStoreProfile($id);
+        return Inertia::render('stores/view', $data);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Category;
 use App\Models\Country;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -37,6 +38,11 @@ class Store extends Model
     public function categories()
     {
         return $this->belongsToMany(Category::class, 'category_store');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 
     public function user()
