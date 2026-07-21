@@ -14,9 +14,7 @@ class RedirectController extends Controller
     {
          $user = Auth::user();
             switch ($user->role_id) {
-                case 1: // admin
-
-                    dd("admin");
+                case 1: 
                     return Inertia::render('dashboard');
                     // return redirect()->route('admin.dashboard');
                     break;

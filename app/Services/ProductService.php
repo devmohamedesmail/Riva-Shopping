@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Store;
 use App\Services\CloudinaryService;
 use App\Traits\UploadsToCloudinary;
+use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -48,6 +49,8 @@ class ProductService
 
     public function createProduct(array $data, $request)
     {
+
+        dd( $request->all());
         $store = $this->getStore();
         if (! $store) return null;
 
@@ -145,16 +148,21 @@ class ProductService
 
     private function uploadImages(Product $product, $request)
     {
+       try{
         if (!$request->hasFile('images')) {
             return;
         }
         foreach ($request->file('images') as $index => $file) {
             $path = $this->cloudinaryService->uploadToCloudinary($file, 'products');
             $product->images()->create([
-                'image' => $path,
+                'image' => $path['url'],
+                'public_id' => $path['public_id'],
                 'order' => $index
             ]);
         }
+       }catch(Exception $e){
+            return $e->getMessage();
+       }
     }
 
 

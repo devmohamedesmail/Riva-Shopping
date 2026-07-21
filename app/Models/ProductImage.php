@@ -9,7 +9,7 @@ class ProductImage extends Model
     /** @use HasFactory<\Database\Factories\ProductImageFactory> */
     use HasFactory;
 
-    protected $fillable = ['product_id', 'image', 'order'];
+    protected $fillable = ['product_id', 'image', 'public_id', 'order'];
 
     public function product()
     {

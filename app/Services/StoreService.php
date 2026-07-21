@@ -6,6 +6,7 @@ use App\Http\Requests\StoreStoreRequest;
 use App\Http\Requests\UpdateStoreRequest;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Role;
 use App\Models\Store;
 use App\Services\CloudinaryService;
 use App\Traits\UploadsToCloudinary;
@@ -65,10 +66,11 @@ class StoreService
         
 
         $user = Auth::user();
+        $role = Role::where('slug', 'vendor')->first();
 
         if ($user instanceof \App\Models\User) {
             $user->update([
-                'role_id' => 2,
+                'role_id' => $role->id,
             ]);
         }
 

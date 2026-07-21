@@ -9,7 +9,7 @@ export default function PricingTab({ activeTab, register, errors, productType }:
         <div className={activeTab === 'inventory' ? 'block space-y-5' : 'hidden'}>
             <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                    <Label>{t('vendor.products.price', 'Price')} <span className="text-red-500">*</span></Label>
+                    <Label>{t('vendor.products.price')} <span className="text-red-500">*</span></Label>
                     <Input type="number" min={0} step="0.01" {...register('price')} className={errors.price ? 'border-red-500' : ''} disabled={productType === 'variant'} />
                     {errors.price && <p className="text-xs text-red-500">{errors.price.message}</p>}
                     {productType === 'variant' && <p className="text-xs text-gray-400">Set base price. Variant prices can override this.</p>}

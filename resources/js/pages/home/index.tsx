@@ -27,7 +27,7 @@ const {products}=useProducts();
                     {/* <PromoSection /> */}
                     {/* <SaleSection /> */}
                     <Newsletter />
-                    {/* <StoresSection stores={stores} /> */}
+                    <StoresSection stores={stores} />
         </MainLayout>
     );
 }

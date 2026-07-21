@@ -97,7 +97,11 @@
         "google-loign": "Login With Google"
     },
     "validation": {
-        "is_required": "This Field is Required"
+        "is_required": "This Field is Required",
+        "title_required":"Title Required",
+        "price_min":"Price Must Be Greater Than 0",
+        "stock_min":"Stock Must Be Greater Than 0",
+        "category_required":"Category Required"
     },
     "home": {
         "featured": {

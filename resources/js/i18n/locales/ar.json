@@ -96,7 +96,11 @@
         "google-loign": " الدخول باستخدام جوجل "
     },
     "validation": {
-        "is_required": " هذا الحقل مطلوب "
+        "is_required": " هذا الحقل مطلوب ",
+        "title_required": " هذا الحقل مطلوب ",
+        "price_min": " السعر يجب ان يكون اكبر من 0 ",
+        "stock_min": " الستوك يجب ان يكون اكبر من 0 ",
+        "category_required": " القسم مطلوب "
     },
     "home": {
         "featured": {

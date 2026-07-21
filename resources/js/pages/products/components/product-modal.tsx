@@ -17,6 +17,23 @@ import useImport from '@/hooks/use-import';
 
 
 
+
+export default function ProductModal({ open, onClose, categories, attributes, editProduct, currency, processing, onSubmit }: any) {
+    const { t, isRtl } = useImport()
+    const [activeTab, setActiveTab] = useState<'general' | 'media' | 'inventory' | 'variants' | 'shipping' | 'visibility'>('general');
+    const [previewImages, setPreviewImages] = useState<{ url: string, file?: File, existing?: boolean }[]>([]);
+    const fileInputRef = useRef<HTMLInputElement>(null);
+
+    const [showOptionForm, setShowOptionForm] = useState(false);
+    const [currentAttrId, setCurrentAttrId] = useState<string>("");
+    const [currentAttrValue, setCurrentAttrValue] = useState("");
+
+
+
+
+
+
+
 const productAttributeSchema = z.object({
     attribute_id: z.coerce.number(),
     values: z.array(z.string()).min(1, "At least one value is required")
@@ -34,13 +51,17 @@ const variantSchema = z.object({
 });
 
 const productSchema = z.object({
-    title: z.string().min(1, 'Title is required'),
+    title: z.string().min(1,  {
+        message: t("validation.title_required"),
+      }),
     description: z.string().optional().nullable(),
-    price: z.coerce.number().min(0, 'Price must be >= 0'),
+    price: z.coerce.number().min(1, {
+        message: t("validation.price_min")}),
     sale_price: z.coerce.number().optional().nullable().transform((val) => (val === 0 ? null : val)),
     product_type: z.enum(['simple', 'variant']).default('simple'),
     product_kind: z.enum(['physical', 'digital']).default('physical'),
-    stock: z.coerce.number().min(0).default(0),
+    stock: z.coerce.number().min(1, {
+        message: t("validation.stock_min")}),
     sku: z.string().optional().nullable(),
     is_active: z.boolean().default(true),
     is_popular: z.boolean().default(false),
@@ -58,15 +79,9 @@ const productSchema = z.object({
 });
 
 type ProductFormData = z.input<typeof productSchema>;
-export default function ProductModal({ open, onClose, categories, attributes, editProduct, currency, processing, onSubmit }: any) {
-    const { t, isRtl } = useImport()
-    const [activeTab, setActiveTab] = useState<'general' | 'media' | 'inventory' | 'variants' | 'shipping' | 'visibility'>('general');
-    const [previewImages, setPreviewImages] = useState<{ url: string, file?: File, existing?: boolean }[]>([]);
-    const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const [showOptionForm, setShowOptionForm] = useState(false);
-    const [currentAttrId, setCurrentAttrId] = useState<string>("");
-    const [currentAttrValue, setCurrentAttrValue] = useState("");
+
+
 
     const { register, handleSubmit, reset, control, watch, setValue, formState: { errors } } = useForm<ProductFormData>({
         resolver: zodResolver(productSchema),
