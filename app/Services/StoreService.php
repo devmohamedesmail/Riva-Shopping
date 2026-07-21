@@ -180,7 +180,7 @@ class StoreService
     public function getStoreProfile(int $id)
     {
         $store = Store::findOrFail($id);
-        $products = $store->products()->paginate(10);
+        $products = $store->products()->with(['images' , 'category'])->paginate(10);
         $categories = $store->categories()->get();
         return [
             'store' => $store,

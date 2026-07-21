@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Product;
 use App\Models\Store;
-
 use Inertia\Inertia;
 
 class PublicController extends Controller
 {
     public function HomePage()
     {
+        $banners          = Banner::all();
         $stores           = Store::paginate(5);
         $featuredProducts = Product::where('is_active', true)->where('is_featured', true)->with(['category', 'images'])->take(8)->get();
         if ($featuredProducts->isEmpty()) {
@@ -19,6 +20,7 @@ class PublicController extends Controller
         return Inertia::render('home/index', [
             "stores"           => $stores,
             "featuredProducts" => $featuredProducts,
+            "banners"          => $banners,
         ]);
     }
 

@@ -1,57 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import useImport from '@/hooks/use-import';
 
-const slides = [
-    {
-        id: 1,
-        badge: 'New Arrivals',
-        title: 'Elevate Your\nWardrobe Game',
-        subtitle: 'Discover the latest fashion trends with up to 40% off on premium collections',
-        cta: 'Shop Now',
-        ctaHref: '#',
-        bg: 'from-[#1a1a2e] via-[#16213e] to-[#0f3460]',
-        accent: '#c96',
-        imageGradient: 'from-amber-400/20 to-orange-500/10',
-        pattern: 'circles',
-    },
-    {
-        id: 2,
-        badge: 'Electronics Sale',
-        title: 'Tech Deals That\nBlow Your Mind',
-        subtitle: 'Premium gadgets & electronics at unbeatable prices — up to 60% savings',
-        cta: 'Explore Deals',
-        ctaHref: '#',
-        bg: 'from-[#0d1b2a] via-[#1b2a3b] to-[#243447]',
-        accent: '#4f9cf9',
-        imageGradient: 'from-blue-400/20 to-cyan-500/10',
-        pattern: 'dots',
-    },
-    {
-        id: 3,
-        badge: 'Flash Sale — 24h Only',
-        title: 'Summer Collection\nIs Here!',
-        subtitle: 'Fresh styles for every occasion — free shipping on all orders today',
-        cta: 'Grab the Deal',
-        ctaHref: '#',
-        bg: 'from-[#1a0a00] via-[#2d1200] to-[#3d1a00]',
-        accent: '#f97316',
-        imageGradient: 'from-orange-400/25 to-red-500/10',
-        pattern: 'waves',
-    },
-];
+import {
+    Truck,
+    RotateCcw,
+    ShieldCheck,
+    Headset
+} from 'lucide-react';
 
-const stats = [
-    { value: '50K+', label: 'Products' },
-    { value: '200+', label: 'Brands' },
-    { value: '1M+', label: 'Customers' },
-    { value: '24/7', label: 'Support' },
-];
-
-export default function HeroBanner() {
+export default function HeroBanner({ banners }: { banners: any[] }) {
     const [current, setCurrent] = useState(0);
     const [transitioning, setTransitioning] = useState(false);
-    const {t,i18n}=useTranslation()
+    const { t, i18n } = useImport()
 
     const goTo = (index: number) => {
         if (transitioning) return;
@@ -62,157 +23,110 @@ export default function HeroBanner() {
         }, 300);
     };
 
-    const prev = () => goTo((current - 1 + slides.length) % slides.length);
-    const next = () => goTo((current + 1) % slides.length);
+
+    const prev = () => goTo((current - 1 + banners.length) % banners.length);
+
+    const next = () => goTo((current + 1) % banners.length);
+
 
     useEffect(() => {
         const timer = setInterval(next, 5000);
         return () => clearInterval(timer);
     }, [current]);
 
-    const slide = slides[current];
+
 
     return (
         <section className="relative overflow-hidden">
             {/* Main Slide */}
-            <div className={`bg-gradient-to-br ${slide.bg} relative min-h-[520px] md:min-h-[600px] flex items-center transition-all duration-500`}>
-                {/* Background pattern */}
-                <div className="absolute inset-0 opacity-5">
-                    {slide.pattern === 'circles' && (
-                        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <pattern id="circles" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-                                    <circle cx="30" cy="30" r="20" fill="none" stroke="white" strokeWidth="1" />
-                                </pattern>
-                            </defs>
-                            <rect width="100%" height="100%" fill="url(#circles)" />
-                        </svg>
-                    )}
-                    {slide.pattern === 'dots' && (
-                        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-                                    <circle cx="5" cy="5" r="2" fill="white" />
-                                </pattern>
-                            </defs>
-                            <rect width="100%" height="100%" fill="url(#dots)" />
-                        </svg>
-                    )}
-                </div>
+            <div className="relative h-[550px] md:h-[650px] overflow-hidden rounded-3xl">
+                {banners.map((banner, index) => {
+                    const title =
+                        i18n.language === "ar"
+                            ? banner.title_ar
+                            : banner.title_en;
 
-                {/* Glow orbs */}
-                <div
-                    className="absolute top-10 right-20 w-96 h-96 rounded-full blur-3xl opacity-20 transition-all duration-700"
-                    style={{ background: slide.accent }}
-                />
-                <div
-                    className="absolute bottom-0 left-1/3 w-64 h-64 rounded-full blur-2xl opacity-10 transition-all duration-700"
-                    style={{ background: slide.accent }}
-                />
+                    const description =
+                        i18n.language === "ar"
+                            ? banner.description_ar
+                            : banner.description_en;
 
-                <div className="max-w-7xl mx-auto px-4 w-full relative z-10">
-                    <div className="grid md:grid-cols-2 gap-8 items-center">
-                        {/* Text Content */}
-                        <div className={`text-white transition-all duration-500 ${transitioning ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
-                            <span
-                                className="inline-block text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full mb-6"
-                                style={{ background: `${slide.accent}25`, color: slide.accent, border: `1px solid ${slide.accent}40` }}
-                            >
-                                ✨ {slide.badge}
-                            </span>
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-5 whitespace-pre-line">
-                                {slide.title.split('\n').map((t, i) => (
-                                    <span key={i} className="block">
-                                        {i === 1 ? <span style={{ color: slide.accent }}>{t}</span> : t}
-                                    </span>
-                                ))}
-                            </h1>
-                            <p className="text-gray-300 text-base md:text-lg mb-8 max-w-md leading-relaxed">
-                                {slide.subtitle}
-                            </p>
-                            <div className="flex flex-wrap gap-4">
-                                <a
-                                    href={slide.ctaHref}
-                                    className="group inline-flex items-center gap-2 px-8 py-3.5 text-sm font-bold rounded-full text-white transition-all duration-300 hover:gap-3 hover:shadow-xl"
-                                    style={{ background: slide.accent }}
-                                >
-                                    {slide.cta}
-                                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                                </a>
-                                <a
-                                    href="#"
-                                    className="inline-flex items-center gap-2 px-8 py-3.5 text-sm font-semibold rounded-full border border-white/30 text-white hover:bg-white/10 transition-all duration-300"
-                                >
-                                    View Catalog
-                                </a>
-                            </div>
+                    return (
+                        <div
+                            key={banner.id}
+                            className={`absolute inset-0 transition-all duration-700 ${current === index
+                                    ? "opacity-100 scale-100 z-10"
+                                    : "opacity-0 scale-105 z-0"
+                                }`}
+                        >
+                            {/* Background */}
+                            <img
+                                src={banner.image}
+                                alt={title}
+                                className="absolute inset-0 h-full w-full object-cover"
+                            />
 
-                            {/* Stats */}
-                            <div className="flex gap-6 mt-10 pt-8 border-t border-white/10">
-                                {stats.map((s) => (
-                                    <div key={s.label}>
-                                        <div className="text-xl font-extrabold" style={{ color: slide.accent }}>{s.value}</div>
-                                        <div className="text-gray-400 text-xs">{s.label}</div>
+                            {/* Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/20" />
+
+                            {/* Content */}
+                            <div className="relative z-10 flex h-full items-center">
+                                <div className="mx-auto max-w-7xl px-6 w-full">
+                                    <div className="max-w-2xl text-white">
+
+                                        <span className="mb-5 inline-flex rounded-full bg-orange-500/20 px-4 py-2 text-sm font-semibold text-orange-300 backdrop-blur">
+                                            🔥 New Collection
+                                        </span>
+
+                                        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+                                            {title}
+                                        </h1>
+
+                                        <p className="mt-6 text-lg text-gray-200 leading-8">
+                                            {description}
+                                        </p>
+
+                                        <div className="mt-10 flex gap-4">
+                                            <button className="rounded-full bg-orange-500 px-8 py-4 font-semibold hover:bg-orange-600 transition">
+                                                Shop Now
+                                            </button>
+
+                                            <button className="rounded-full border border-white/40 px-8 py-4 hover:bg-white/10 transition">
+                                                Explore
+                                            </button>
+                                        </div>
                                     </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Visual side */}
-                        <div className={`relative hidden md:flex items-center justify-center transition-all duration-500 ${transitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
-                            <div
-                                className="w-80 h-80 lg:w-96 lg:h-96 rounded-full flex items-center justify-center"
-                                style={{ background: `radial-gradient(circle, ${slide.accent}15, transparent 70%)` }}
-                            >
-                                {/* Product mockup rings */}
-                                <div
-                                    className="w-72 h-72 rounded-full border border-dashed opacity-30 animate-spin"
-                                    style={{ borderColor: slide.accent, animationDuration: '20s' }}
-                                />
-                                <div
-                                    className="absolute w-56 h-56 rounded-full border border-dashed opacity-20 animate-spin"
-                                    style={{ borderColor: slide.accent, animationDuration: '15s', animationDirection: 'reverse' }}
-                                />
-                                {/* Center badge */}
-                                <div
-                                    className="absolute flex flex-col items-center justify-center w-40 h-40 rounded-full text-white text-center shadow-2xl"
-                                    style={{ background: `linear-gradient(135deg, ${slide.accent}, ${slide.accent}bb)` }}
-                                >
-                                    <span className="text-3xl font-black">40%</span>
-                                    <span className="text-xs font-semibold uppercase tracking-wider opacity-90">OFF</span>
-                                    <span className="text-[10px] opacity-75 mt-1">This Week</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    );
+                })}
 
-                {/* Slide Controls */}
+                {/* Arrows */}
                 <button
                     onClick={prev}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 hover:scale-110"
+                    className="absolute left-5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 backdrop-blur hover:bg-white/20"
                 >
-                    <ChevronLeft size={20} />
+                    <ChevronLeft className="text-white" />
                 </button>
+
                 <button
                     onClick={next}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 hover:scale-110"
+                    className="absolute right-5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/10 p-3 backdrop-blur hover:bg-white/20"
                 >
-                    <ChevronRight size={20} />
+                    <ChevronRight className="text-white" />
                 </button>
 
                 {/* Dots */}
-                <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-                    {slides.map((_, i) => (
+                <div className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 gap-3">
+                    {banners.map((_, index) => (
                         <button
-                            key={i}
-                            onClick={() => goTo(i)}
-                            className="rounded-full transition-all duration-300"
-                            style={{
-                                width: i === current ? '24px' : '8px',
-                                height: '8px',
-                                background: i === current ? slide.accent : 'rgba(255,255,255,0.4)',
-                            }}
+                            key={index}
+                            onClick={() => goTo(index)}
+                            className={`h-2 rounded-full transition-all duration-300 ${current === index
+                                    ? "w-10 bg-orange-500"
+                                    : "w-2 bg-white/50"
+                                }`}
                         />
                     ))}
                 </div>
@@ -222,7 +136,7 @@ export default function HeroBanner() {
             <div className="bg-white border-b border-gray-100 shadow-sm">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
-                        {[
+                        {/* {[
                             { icon: '🚚', title: t('feature.free_shipping'), desc: t('feature.free_shipping_desc') },
                             { icon: '🔄', title: t('feature.easy_returns'), desc: t('feature.easy_returns_desc') },
                             { icon: '🔒', title: t('feature.secure_payment'), desc: t('feature.secure_payment_desc') },
@@ -235,7 +149,52 @@ export default function HeroBanner() {
                                     <div className="text-xs text-gray-500">{f.desc}</div>
                                 </div>
                             </div>
-                        ))}
+                        ))} */}
+
+                        {[
+    {
+        icon: Truck,
+        title: t("feature.free_shipping"),
+        desc: t("feature.free_shipping_desc"),
+    },
+    {
+        icon: RotateCcw,
+        title: t("feature.easy_returns"),
+        desc: t("feature.easy_returns_desc"),
+    },
+    {
+        icon: ShieldCheck,
+        title: t("feature.secure_payment"),
+        desc: t("feature.secure_payment_desc"),
+    },
+    {
+        icon: Headset,
+        title: t("feature.24_7_support"),
+        desc: t("feature.24_7_support_desc"),
+    },
+].map((f) => {
+    const Icon = f.icon;
+
+    return (
+        <div
+            key={f.title}
+            className="group flex items-center gap-4 px-6 py-5 hover:bg-orange-50 transition-colors"
+        >
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-600 group-hover:bg-orange-500 group-hover:text-white transition-all">
+                <Icon size={24} strokeWidth={2} />
+            </div>
+
+            <div>
+                <h3 className="text-sm font-semibold text-gray-900">
+                    {f.title}
+                </h3>
+                <p className="text-xs text-gray-500 mt-1">
+                    {f.desc}
+                </p>
+            </div>
+        </div>
+    );
+})}
                     </div>
                 </div>
             </div>
